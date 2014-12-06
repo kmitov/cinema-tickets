@@ -3,5 +3,4 @@ cinema-tickets
 
 Super Hyper Awesome cinema ticketing software OH YEAH !
 
-ghgkjgh
-hdshdkjasa
+Some meaningful comment oh yeah!

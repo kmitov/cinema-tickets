@@ -1,0 +1,82 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    margin-top: 0;
+    text-align: center;
+}
+
+#menu {
+    border: 5px solid #3e3e3e ;
+    border-left: none;
+    border-right: none;
+}
+
+a {
+    margin-left: 15px;
+    display: inline-block;
+    padding: 0 10px;
+    color: #FFFFFF;
+    transition: color 0.4s ease 0s;
+}
+
+.menu-buttons {
+    text-align: center;
+    line-height: 44px;
+}
+
+.carousel-holder {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#movieCarousel {
+    width: 100%;
+}
+
+span {
+    color: white;
+}
+
+h2 {
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.movie-small {
+    width: 23%;
+    margin-top: 10px;
+    border-top: 5px solid #3e3e3e ;
+    float: left;
+    display: block;
+    margin-right: 15px;
+}
+
+.small-movie-image {
+    width:100%;
+    height:120px;
+}
+
+.movie-text {
+    border-top: 3px solid #3e3e3e ;
+    padding: 2px 0;
+}
+
+.read-more {
+    margin-top: 2px;
+    padding: 0;
+}
+
+#slider1_container {
+    margin-top: 15px;
+    width: 100%;
+    border: 1px solid yellowgreen;
+}
+
+.movie-title{
+    font: normal normal normal 25px/1.3em Forum,serif;
+    color: #EFEFEF;
+}

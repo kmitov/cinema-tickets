@@ -15,13 +15,27 @@
             jQuery(document).ready(function ($) {
                 var options = { $AutoPlay: true };
                 var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+
+                function ScaleSlider() {
+                    var containerWidth = $("#movieCarousel").width();
+                    if(containerWidth) {
+                        jssor_slider1.$ScaleWidth(containerWidth);
+                    }else {
+                        window.setTimeout(ScaleSlider, 30);
+                    }
+                }
+                ScaleSlider();
+
+                $(window).bind("load", ScaleSlider);
+                $(window).bind("resize", ScaleSlider);
+                $(window).bind("orientationchange", ScaleSlider);
             });
         </script>
     </h:head>
 
     <h:body>
-        <div  style="background-color: black; width:100%; height: 600px;" >
-            <div id="content" style="width: 968px; margin:0 auto;" >
+        <div  style="background-color: black; width:100%; " >
+            <div id="content" class="site-content" >
                 <div id="header">
                     <h1>
                         CINEMA TICKETS
@@ -41,54 +55,75 @@
                 </div>
 
 
-                <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 100%; height: 300px;">
-                    <!-- Slides Container -->
-                    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
-                        <div><img u="image" src="pictures/landscape1.jpg" /></div>
-                        <div><img u="image" src="pictures/landscape2.jpg" /></div>
+                <div id="movieCarousel">
+                    <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+                        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+                            <div><img u="image" src="pictures/imitation-game.jpg" /></div>
+                            <div><img u="image" src="pictures/the-interview.jpg" /></div>
+                        </div>
                     </div>
                 </div>
+
+                <!--<div><img u="image" src="pictures/landscape1.jpg" /></div>-->
+                <!--<div><img u="image" src="pictures/landscape2.jpg" /></div>-->
 
                 <div id="additional-movies">
 
                     <div id="movie1" class="movie-small" >
-                        <h2><span class="movie-title">The Godfather</span></h2>
-                        <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
-                        <span>The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
+                        <h2><span class="movie-title">The Hobbit</span></h2>
+                        <h:graphicImage url="pictures/the-hobbit.jpg" styleClass="small-movie-image" />
 
                         <div class="movie-text" >
-                            <a class="read-more" href="#">Read more</a>
+                            <span class="movie-description">The hobbit is the adventure of Bilbo Baggins in Middle Earth.</span>
                         </div>
+
+                        <a class="read-more" href="#">Read more></a>
                     </div>
 
                     <div id="movie2" class="movie-small" >
-                        <h2><span class="movie-title">The Godfather</span></h2>
-                        <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
-                        <span>The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
+                        <h2><span class="movie-title">Interstellar</span></h2>
+                        <h:graphicImage url="pictures/interstellar.jpeg" styleClass="small-movie-image" />
 
                         <div class="movie-text" >
-                            <a class="read-more" href="#">Read more</a>
+                            <span class="movie-description">Interstellar is a movie about space, saving the human race, and Mathew McConoughey in a black hole.</span>
                         </div>
+
+                        <a class="read-more" href="#">Read more></a>
                     </div>
 
                     <div id="movie3" class="movie-small" >
                         <h2><span class="movie-title">The Godfather</span></h2>
                         <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
-                        <span>The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
 
                         <div class="movie-text" >
-                            <a class="read-more" href="#">Read more</a>
+                            <span class="movie-description">The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
                         </div>
+
+                        <a class="read-more" href="#">Read more></a>
                     </div>
 
                     <div id="movie4" class="movie-small" >
-                        <h2><span class="movie-title">The Godfather</span></h2>
-                        <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
-                        <span>The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
+                        <h2><span class="movie-title">Fast and Furious</span></h2>
+                        <h:graphicImage url="pictures/faf.jpg" styleClass="small-movie-image" />
 
                         <div class="movie-text" >
-                            <a class="read-more" href="#">Read more</a>
+                            <span class="movie-description">Fast and furious is a movie about fast cars and hot chicks.</span>
                         </div>
+
+                        <a class="read-more" href="#">Read more></a>
+                    </div>
+                    <span class="stretch"></span>
+                </div>
+            </div>
+
+            <div id="footer">
+                <div id="footer-content" class="site-content" >
+                    <div class="developers">
+                        <h2><span class="movie-title">Developers :</span></h2>
+                        <span class="developer"> Konstantin Mitov</span>
+                        <span class="developer"> Sonia Vlahova</span>
+                        <span class="developer"> Yordan Danchev</span>
+                        <span class="developer"> Dimitur Shumarov</span>
                     </div>
                 </div>
             </div>

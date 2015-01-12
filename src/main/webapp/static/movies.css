@@ -19,7 +19,7 @@
 a.read-more{
     font: normal normal normal 12px/1.3em 'Open Sans',sans-serif;
     transition: color 0.4s ease 0s;
-    color: #EACB00;
+    color: #9C8700;
     cursor: pointer;
     white-space: nowrap;
     display: inline-block;
@@ -33,7 +33,7 @@ a.read-more:hover {
 
 .property-name{
     font: normal normal normal 14px/1.3em 'Open Sans',sans-serif;
-    color: #EACB00;
+    color: #9C8700;
     margin: 5px 0px 0px 25px;
 }
 

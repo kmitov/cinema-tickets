@@ -1,0 +1,69 @@
+td {
+    color: #9C8700;
+    margin-top: 0;
+    text-align: left;
+    font: 16px/1.3em 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.3em;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    color: white;
+    margin-top: 0;
+    text-align: center;
+}
+
+.header {
+    font: 25px/1.3em Forum, serif;
+    font-family: Forum, serif;
+    font-size: 25px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.3em;
+    color: #EFEFEF;
+    padding-bottom: 1em;
+}
+
+
+table {
+    border-bottom: solid 3px #3e3e3e;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.right{
+    text-align: right;
+}
+
+
+a:link{
+    color: #9C8700;
+}
+
+a:visited {
+    color: #9C8700;
+}
+
+a:hover {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.date{
+    color: #9C8700!important;
+}
+

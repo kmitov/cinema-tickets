@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="../static/styles_history.css"></link>
+    </h:head>
+
+    <h:body>
+        <p:growl id="msgs"/>
+
+        <div style="background-color: black; width:100%; height: 600px;">
+            <div id="content" style="width: 968px; margin:0 auto;">
+                <div id="contentTable">
+                    <h:form>
+                        <p:dataTable styleClass="table" var="ticket" value="#{dtTicketFilterView.tickets}" widgetVar="ticketsTable" filteredValue="#{dtTicketFilterView.filteredTickets}">
+
+                        <f:facet name="header">
+                            <p:outputPanel style="text-align: right;">
+                                <h:outputText value="Search all fields:" style="font-size: 82%"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('ticketsTable').filter()"
+                                             style="width:150px; font-size: 82%" placeholder="Enter keyword"/>
+                            </p:outputPanel>
+                        </f:facet>
+                        <p:column styleClass="colID" headerText="Ticket" filterBy="#{ticket.id}" filterMatchMode="contains" filterStyleClass="filterInputField">
+                            <h:outputText value="#{ticket.id}"/>
+                        </p:column>
+
+                        <p:column id="colDate" headerText="Date" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputField">
+                            <h:outputText value="#{ticket.user}"/>
+                        </p:column>
+
+                            <p:column id="colStarts" headerText="Starts" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputField">
+                                <h:outputText value="#{ticket.user}"/>
+                            </p:column>
+
+                            <p:column id="colMovie" headerText="Movie" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputField">
+                                <h:outputText value="#{ticket.user}"/>
+                            </p:column>
+
+                            <p:column id="colStatus" headerText="Status" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputField">
+                                <h:outputText value="#{ticket.user}"/>
+                            </p:column>
+
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+
+</html>

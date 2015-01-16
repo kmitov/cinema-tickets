@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="../static/login.css"> </link>
+    </h:head>
+    <h:body>
+        <div  style="background-color: black; width:100%; height: 900px;" >
+            <div id="content" style="width: 968px; margin:0 auto;" >
+                <div id="login-info">
+                    <div class="element">
+                        <span class="property-label" id="fistname-label">Password:</span>
+                        <p:password id="firstnme-value" />
+                    </div>
+                    <div class="element">
+                        <span class="property-label">Username:</span>
+                        <p:inputText id="username-value"/>
+                    </div>
+                    <div class="element">
+                        <span class="property-label" id="password-label">Password:</span>
+                        <p:password id="password-value" />
+                    </div>
+                    <div class="element">
+                        <p:selectBooleanCheckbox/>
+                        <div class="btns-element">
+                            <input type="button" class="btn" value="Create account"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>

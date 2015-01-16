@@ -216,5 +216,16 @@
 
     <build>
         <finalName>cinema-tickets</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <server>mytomcat</server>
+                    <url>http://localhost:7070/manager/text</url>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

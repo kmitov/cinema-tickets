@@ -9,7 +9,6 @@ import java.util.List;
  * Created by soniav on 10.1.2015 г..
  */
 
-@ManagedBean
 public class MoviesBean {
 
     private List<MovieDto> movies;

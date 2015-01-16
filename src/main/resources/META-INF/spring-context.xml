@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <context:component-scan base-package="com.cinema.*"/>
+    <context:component-scan base-package="com.cinema.tickets.*"/>
 
     <import resource="classpath*:META-INF/hibernate-config.xml" />
     <import resource="classpath*:META-INF/service.xml" />

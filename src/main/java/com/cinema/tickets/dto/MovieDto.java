@@ -1,16 +1,19 @@
 package com.cinema.tickets.dto;
 
-import com.cinema.tickets.dao.MovieDao;
+import com.cinema.tickets.entity.Movie;
 
 /**
  * Created by soniav on 10.1.2015 г..
  */
 public class MovieDto {
 
-    private MovieDto movieDto;
+    private Movie movie;
 
-    public MovieDto(MovieDao movieDao){
-
+    public MovieDto(Movie movie){
+        title = movie.getTitle();
+        description = movie.getDescription();
+        imageUrl = movie.getImageUrl();
+        duration = movie.getDuration();
     }
 
     private String title;

@@ -7,4 +7,8 @@
     <bean id="movieService" class="com.cinema.tickets.service.MovieService">
         <property name="movieDao" ref="movieDao"/>
     </bean>
+
+    <bean id="userService" class="com.cinema.tickets.service.UserService">
+        <property name="userDao" ref="userDao"/>
+    </bean>
 </beans>

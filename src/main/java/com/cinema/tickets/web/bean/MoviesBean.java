@@ -25,7 +25,7 @@ public class MoviesBean {
 
     private List<MovieDto> movies;
 
-    public List<Movie> getMovies() {
+    public List<MovieDto> getMovies() {
         return movieService.moviesForHomePage();
     }
 

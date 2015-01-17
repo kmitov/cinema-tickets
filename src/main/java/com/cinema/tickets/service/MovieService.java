@@ -1,12 +1,14 @@
 package com.cinema.tickets.service;
 
 import com.cinema.tickets.dao.MovieDao;
+import com.cinema.tickets.dto.MovieDto;
 import com.cinema.tickets.entity.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MovieService {
+    public MovieDao movieDao;
 
     public MovieDao getMovieDao() {
         return movieDao;
@@ -16,10 +18,12 @@ public class MovieService {
         this.movieDao = movieDao;
     }
 
-    public MovieDao movieDao;
-
-    public List<Movie> moviesForHomePage(){
+    public List<MovieDto> moviesForHomePage(){
+        List<MovieDto> moviesForHomepage = new ArrayList<MovieDto>();
         List<Movie> movies = movieDao.getLatestMovies();
-        return movies;
+        for (Movie movie : movies){
+            moviesForHomepage.add(new MovieDto(movie));
+        }
+        return moviesForHomepage;
     }
 }

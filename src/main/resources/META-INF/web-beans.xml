@@ -7,4 +7,9 @@
     <bean id="movieBean" class="com.cinema.tickets.web.bean.MoviesBean">
         <property name="movieService" ref="movieService"/>
     </bean>
+
+    <bean id="userBean" class="com.cinema.tickets.web.bean.UserBean">
+        <property name="userService" ref="userService"/>
+    </bean>
+
 </beans>

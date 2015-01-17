@@ -8,7 +8,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="userDao" class="com.cinema.tickets.dao.impl.UserDaoImpl" parent="baseDao" />
+    <bean id="userDao" class="com.cinema.tickets.dao.impl.UserDaoImpl" parent="baseDao"  />
 
     <bean id="movieDao" class="com.cinema.tickets.dao.impl.MovieDaoImpl" parent="baseDao" />
 </beans>

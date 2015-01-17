@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
- * User: kmitov
+ * User: kmitov,shymi
  * Date: 6/27/14
  * Time: 9:42 AM
  * To change this template use File | Settings | File Templates.
@@ -23,6 +23,7 @@ public class User {
     private String password;
     private boolean enabled;
     private UserRole userRole;
+//    private String email;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,4 +82,12 @@ public class User {
         this.enabled = enabled;
     }
 
+//    @Column(name = "email", nullable = false)
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 }

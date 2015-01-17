@@ -11,24 +11,25 @@
         <link rel="stylesheet" type="text/css" href="../static/register.css"> </link>
     </h:head>
     <h:body>
+        <h:form>
         <div  style="background-color: black; width:100%; height: 900px;" >
             <div id="content" style="width: 968px; margin:0 auto;" >
                 <div id="login-info">
                     <div class="element">
                         <span class="property-label" id="name-label">Name:</span>
-                        <p:inputText id="name-value" required="true"/>
+                        <p:inputText id="name-value" required="true" value="#{userBean.firstName}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="surname-label">Surname:</span>
-                        <p:inputText id="surname-value" required="true"/>
+                        <p:inputText id="surname-value" required="true" value="#{userBean.lastName}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="username-label">Username:</span>
-                        <p:inputText id="username-value" required="true"/>
+                        <p:inputText id="username-value" required="true" value="#{userBean.username}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="password-label">Password:</span>
-                        <p:password id="password-value" required="true"/>
+                        <p:password id="password-value" required="true" value="#{userBean.password}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="confirm-password-label">Confirm Password:</span>
@@ -40,12 +41,13 @@
                     </div>
                     <div class="element">
                         <div class="btns-element">
-                            <input type="button" class="btn" value="Create account"/>
+                            <h:commandButton value="Login" action="#{userBean.createAccount()}"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </h:form>
     </h:body>
 </f:view>
 </html>

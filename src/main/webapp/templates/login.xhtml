@@ -20,16 +20,16 @@
                     </div>
                     <div class="element">
                         <span class="property-label">Username:</span>
-                        <p:inputText id="username-value"/>
+                        <p:inputText id="username-value" value="#{userBean.username}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="password-label">Password:</span>
-                        <p:password id="password-value" />
+                        <p:password id="password-value" value="#{userBean.password}"/>
                     </div>
                     <div class="element">
                         <p:selectBooleanCheckbox/>
                         <div class="btns-element">
-                            <input type="button" class="btn" value="Create account"/>
+                            <h:commandButton value="Create Account" action="#{userBean.createAccount}" />
                         </div>
                     </div>
                 </div>

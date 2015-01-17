@@ -63,7 +63,7 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>templates/theatre.jsf</welcome-file>
+        <welcome-file>templates/globalTemplate.jsf</welcome-file>
     </welcome-file-list>
 
     <context-param>

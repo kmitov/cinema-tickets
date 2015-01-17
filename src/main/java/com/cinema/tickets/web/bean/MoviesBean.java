@@ -1,8 +1,10 @@
 package com.cinema.tickets.web.bean;
 
 import com.cinema.tickets.dto.MovieDto;
-
-import javax.faces.bean.ManagedBean;
+import com.cinema.tickets.entity.Movie;
+import com.cinema.tickets.service.MovieService;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import java.util.List;
 
 /**
@@ -11,9 +13,21 @@ import java.util.List;
 
 public class MoviesBean {
 
+    public MovieService getMovieService() {
+        return movieService;
+    }
+
+    public void setMovieService(MovieService movieService) {
+        this.movieService = movieService;
+    }
+
+    MovieService movieService;
+
     private List<MovieDto> movies;
 
-    public List<MovieDto> getMovies() {
-        return movies;
+    public List<Movie> getMovies() {
+        return movieService.moviesForHomePage();
     }
+
+
 }

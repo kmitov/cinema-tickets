@@ -1,9 +1,18 @@
 package com.cinema.tickets.dto;
 
+import com.cinema.tickets.dao.MovieDao;
+
 /**
  * Created by soniav on 10.1.2015 г..
  */
 public class MovieDto {
+
+    private MovieDto movieDto;
+
+    public MovieDto(MovieDao movieDao){
+
+    }
+
     private String title;
     private String description;
     private String imageUrl;

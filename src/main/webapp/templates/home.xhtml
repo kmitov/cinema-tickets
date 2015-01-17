@@ -7,7 +7,7 @@
 <f:view>
 
     <h:head>
-        <link rel="stylesheet" type="text/css" href="static/styles.css"> </link>
+        <link rel="stylesheet" type="text/css" href="../static/home_styles.css"> </link>
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jssor.slider.mini.js"></script>
         <script>
@@ -92,108 +92,74 @@
     </h:head>
 
     <h:body>
-        <div  style="background-color: black; width:100%; " >
-            <div id="content" class="site-content" >
-                <div id="header">
-                    <h1>
-                        CINEMA TICKETS
-                    </h1>
+    <div id="movieCarousel">
+        <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+                <div>
+                    <img u="image" src="pictures/imitation-game.jpg" />
+                    <div u="thumb">Do you notice it is draggable by mouse/finger?</div>
                 </div>
-
-                <div id="menu" >
-                    <div class="menu-buttons" >
-                        <a  href="#">Home</a>
-                        <a  href="templates/movies.jsf">Movies</a>
-                        <a  href="templates/programme.jsf">Programme</a>
-                    </div>
-                </div>
-
-                <div id="switchable-content">
-
-                </div>
-
-
-                <div id="movieCarousel">
-                    <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
-                        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
-                            <div>
-                                <img u="image" src="pictures/imitation-game.jpg" />
-                                <div u="thumb">Do you notice it is draggable by mouse/finger?</div>
-                            </div>
-                            <div>
-                                <img u="image" src="pictures/the-interview.jpg" />
-                                <div u="thumb">Did you drag by either horizontal or vertical?</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--<div><img u="image" src="pictures/landscape1.jpg" /></div>-->
-                <!--<div><img u="image" src="pictures/landscape2.jpg" /></div>-->
-
-                <div id="additional-movies">
-
-                    <div id="movie1" class="movie-small" >
-                        <h2><span class="movie-title">The Hobbit</span></h2>
-                        <h:graphicImage url="pictures/the-hobbit.jpg" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">The hobbit is the adventure of Bilbo Baggins in Middle Earth.</span>
-                        </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
-
-                    <div id="movie2" class="movie-small" >
-                        <h2><span class="movie-title">Interstellar</span></h2>
-                        <h:graphicImage url="pictures/interstellar.jpeg" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">Interstellar is a movie about space, saving the human race, and Mathew McConoughey in a black hole.</span>
-                        </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
-
-                    <div id="movie3" class="movie-small" >
-                        <h2><span class="movie-title">#{movieBean.getMovies().get(0).title}</span></h2>
-                        <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
-                        </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
-
-                    <div id="movie4" class="movie-small" >
-                        <h2><span class="movie-title">Fast and Furious</span></h2>
-                        <h:graphicImage url="pictures/faf.jpg" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">Fast and furious is a movie about fast cars and hot chicks.</span>
-                        </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
-                    <span class="stretch"></span>
-                </div>
-            </div>
-
-            <div id="footer">
-                <div id="footer-content" class="site-content" >
-                    <div class="developers">
-                        <h2><span class="movie-title">Developers :</span></h2>
-                        <span class="developer"> Konstantin Mitov</span>
-                        <span class="developer"> Sonia Vlahova</span>
-                        <span class="developer"> Yordan Danchev</span>
-                        <span class="developer"> Dimitur Shumarov</span>
-                    </div>
+                <div>
+                    <img u="image" src="pictures/the-interview.jpg" />
+                    <div u="thumb">Did you drag by either horizontal or vertical?</div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </h:body>
+    <!--<div><img u="image" src="pictures/landscape1.jpg" /></div>-->
+    <!--<div><img u="image" src="pictures/landscape2.jpg" /></div>-->
+
+    <div id="additional-movies">
+
+        <div id="movie1" class="movie-small" >
+            <h2><span class="movie-title">The Hobbit</span></h2>
+            <h:graphicImage url="pictures/the-hobbit.jpg" styleClass="small-movie-image" />
+
+            <div class="movie-text" >
+                <span class="movie-description">The hobbit is the adventure of Bilbo Baggins in Middle Earth.</span>
+            </div>
+
+            <a class="read-more" href="#">Read more></a>
+        </div>
+
+        <div id="movie2" class="movie-small" >
+            <h2><span class="movie-title">Interstellar</span></h2>
+            <h:graphicImage url="pictures/interstellar.jpeg" styleClass="small-movie-image" />
+
+            <div class="movie-text" >
+                <span class="movie-description">Interstellar is a movie about space, saving the human race, and Mathew McConoughey in a black hole.</span>
+            </div>
+
+            <a class="read-more" href="#">Read more></a>
+        </div>
+
+        <div id="movie3" class="movie-small" >
+            <h2><span class="movie-title">#{movieBean.getMovies().get(0).title}</span></h2>
+            <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
+
+            <div class="movie-text" >
+                <span class="movie-description">The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
+            </div>
+
+            <a class="read-more" href="#">Read more></a>
+        </div>
+
+        <div id="movie4" class="movie-small" >
+            <h2><span class="movie-title">Fast and Furious</span></h2>
+            <h:graphicImage url="pictures/faf.jpg" styleClass="small-movie-image" />
+
+            <div class="movie-text" >
+                <span class="movie-description">Fast and furious is a movie about fast cars and hot chicks.</span>
+            </div>
+
+            <a class="read-more" href="#">Read more></a>
+        </div>
+        <span class="stretch"></span>
+    </div>
+
+</h:body>
+
+
 </f:view>
-
 </html>

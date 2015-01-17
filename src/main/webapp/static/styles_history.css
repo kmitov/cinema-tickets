@@ -1,0 +1,49 @@
+body {
+    background-color: black;
+}
+
+#contentTable {
+    border-bottom: solid 3px #3e3e3e;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    float: left;
+
+}
+
+
+
+.takenButton
+{
+    width: 150px;!important;
+}
+
+
+.colStatus
+{
+    width: 180px;
+    text-align: center!important;
+}
+
+.colID
+{
+    width: 200px;
+    text-align: center!important;
+}
+
+.filterButtons
+{
+    font-size: 62%!important;
+}
+
+.filterInputField
+{
+    font-size: 75%!important;
+    width: 60%!important;
+
+}
+
+.filterInputField2
+{
+    font-size: 82%!important;
+}
+

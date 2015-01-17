@@ -1,0 +1,91 @@
+body {
+    background-color: black;
+}
+
+#contentTable {
+    border-bottom: solid 3px #3e3e3e;
+    margin-bottom: 1em;
+    float: left;
+
+}
+
+.right{
+    text-align: right;
+}
+
+
+a:link{
+    color: #9C8700;
+}
+
+a:visited {
+    color: #9C8700;
+}
+
+a:hover {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+#date{
+    display:block;
+    float:left;
+    margin-right: 12px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+#dropdownProjection{
+
+    width: 100%!important;
+}
+
+#Projection
+{
+    display:block;
+    float:left;
+    margin-top: 16px;
+    margin-bottom: 1em;
+    width: 75%;
+}
+
+.takenButton
+{
+    width: 150px;!important;
+}
+
+
+.colStatus
+{
+    width: 180px;
+    text-align: center!important;
+}
+
+.colID
+{
+    width: 200px;
+    text-align: center!important;
+}
+
+.filterButtons
+{
+    font-size: 62%!important;
+}
+
+.filterInputFieldUser
+{
+    font-size: 82%!important;
+    width: 30%!important;
+
+}
+
+.filterInputFieldID
+{
+    font-size: 82%!important;
+}
+

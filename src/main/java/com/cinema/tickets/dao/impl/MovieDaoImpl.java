@@ -14,6 +14,19 @@ public class MovieDaoImpl extends BaseDaoImpl<Movie> implements MovieDao {
 
     @Override
     public List<Movie> getLatestMovies() {
-       return getSessionFactory().getCurrentSession().createQuery("FROM Movie AS m").list();
+       return getSessionFactory().getCurrentSession().createQuery("FROM Movie AS m order by m.releaseDate desc").list();
+    }
+
+    @Override
+    public List<Movie> getAllMoviesOnScreen() {
+        return getSessionFactory().getCurrentSession().createQuery("FROM Movie AS m").list();
+    }
+
+    @Override
+    public Movie getMovie(long id) {
+        Object movie = getSessionFactory().getCurrentSession().createQuery("FROM Movie AS m WHERE m.id = :id")
+                .setParameter("id", id).uniqueResult();
+
+        return movie != null ? (Movie)movie : null;
     }
 }

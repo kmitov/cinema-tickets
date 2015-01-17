@@ -1,6 +1,9 @@
 package com.cinema.tickets.entity;
 
+import com.cinema.tickets.enums.Language;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by kmitov on 1/16/15.
@@ -14,6 +17,11 @@ public class Movie {
     private String description;
     private String imageUrl;
     private int duration;
+    private String language;
+    private Date releaseDate;
+    private float rating;
+    private String actors;
+    private String directors;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,5 +69,51 @@ public class Movie {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+//    @Enumerated(EnumType.STRING)
+    @Column(name="language", nullable = false)
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    @Column(name="releaseDate", nullable = false)
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    @Column(name="rating", nullable = false)
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    @Column(name="actors", nullable = false)
+    public String getActors() {
+        return actors;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    @Column(name="directors", nullable = false)
+    public String getDirectors() {
+        return directors;
+    }
+
+    public void setDirectors(String directors) {
+        this.directors = directors;
     }
 }

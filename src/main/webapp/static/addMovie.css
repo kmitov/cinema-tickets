@@ -1,0 +1,82 @@
+body {
+    background-color: black;
+}
+
+.property-name{
+    font: normal normal normal 16px/1.3em 'Open Sans',sans-serif;
+    color: white;
+    margin: 20px 10px 10px 10px;
+    font-weight: bold;
+}
+
+.big-value{
+    font: normal normal normal 16px/1.3em 'Open Sans',sans-serif;
+    margin: 20px 0px 0px 0px;
+    font-weight: bold;
+    width: 430px;
+    height: 21px;
+}
+
+.small-value{
+    font: normal normal normal 16px/1.3em 'Open Sans',sans-serif;
+    margin: 20px 0px 0px 0px;
+    font-weight: bold;
+    width: 50px;
+    height: 21px;
+}
+
+#title-property{
+    margin-left: 70px;
+}
+
+#language-property{
+    margin-left: 29px;
+}
+
+#rating-property{
+    margin-left: 83px;
+}
+
+#genre-property{
+    margin-left: 58px;
+}
+
+#director-property{
+    margin-left: 43px;
+}
+
+#stars-property{
+    margin-left: 64px;
+}
+
+#description-property{
+    margin-left: 17px;
+    marging-top: 20px;
+}
+
+.drop-down{
+    font: normal normal normal 16px/1.3em 'Open Sans',sans-serif;
+    margin: 20px 0px 0px 0px;
+    font-weight: bold;
+    width: 225px;
+    height: 28px;
+}
+
+.text-area{
+    font: normal normal normal 16px/1.3em 'Open Sans',sans-serif;
+    margin: 0px 0px 0px 118px;
+    font-weight: bold;
+    width: 430px;
+    height: 130px;
+}
+
+#on-screen-property{
+    margin-left: 25px;
+}
+
+.btn-save{
+    font: normal normal normal 16px/1.3em 'Open Sans',sans-serif;
+    margin-left: 117px;
+    margin-top: 20px;
+    font-weight: bold;
+}

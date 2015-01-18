@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="../static/addMovie.css"> </link>
+    </h:head>
+    <h:body>
+        <div style="background-color: black; width:100%; height: 900px; text-align: center" >
+            <div id="content" style="width: 968px; margin:0 auto; text-align: left" >
+                <div class="new-movie">
+                    <div>
+                        <span class="property-name" id="title-property">Title:</span>
+                        <h:inputText class="big-value"></h:inputText>
+                    </div>
+                    <div>
+                        <span class="property-name">Released on:</span>
+                        <p:outputLabel for="mask" value=""/>
+                        <p:calendar styleClass="calendar" id="mask" value="#{calendarView.date9}" pattern="yyyy/MM/dd" mask="true"/>
+                        <span class="property-name">Length (in min.):</span>
+                        <h:inputText class="small-value"></h:inputText>
+                    </div>
+                    <div>
+                        <span class="property-name" id="language-property">Language:</span>
+                        <h:selectOneListbox styleClass="drop-down"></h:selectOneListbox>
+                        <span class="property-name" id="rating-property">Rating:</span>
+                        <h:inputText class="small-value"></h:inputText>
+                    </div>
+                    <div>
+                        <span class="property-name" id="genre-property">Genre:</span>
+                        <h:selectOneListbox styleClass="drop-down"></h:selectOneListbox>
+                    </div>
+                    <div>
+                        <span class="property-name" id="director-property">Director:</span>
+                        <h:inputText class="big-value"></h:inputText>
+                    </div>
+                    <div>
+                        <span class="property-name" id="stars-property">Stars:</span>
+                        <h:inputText class="big-value"></h:inputText>
+                    </div>
+                    <div>
+                        <div class="property-name" id="description-property">Description:</div>
+                    </div>
+                    <div>
+                        <h:inputTextarea class="text-area"></h:inputTextarea>
+                    </div>
+                    <div>
+                        <span class="property-name" id="on-screen-property">On screen:</span>
+                        <h:selectOneListbox styleClass="drop-down"></h:selectOneListbox>
+                    </div>
+                    <div>
+                        <h:commandButton class="btn-save" value="Save movie"></h:commandButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>

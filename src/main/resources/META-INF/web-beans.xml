@@ -10,7 +10,6 @@
 
     <bean id="userBean" class="com.cinema.tickets.web.bean.UserBean">
         <property name="userService" ref="userService"/>
-        <property name="userDto" ref="userDto"/>
     </bean>
 
 </beans>

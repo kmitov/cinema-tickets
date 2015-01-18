@@ -14,7 +14,6 @@
     <import resource="classpath*:META-INF/dao.xml" />
     <import resource="classpath*:META-INF/assembler.xml" />
     <import resource="classpath*:META-INF/web-beans.xml" />
-    <import resource="classpath*:META-INF/dto.xml"/>
     <!--Spring security disabled for now -->
     <!--<import resource="classpath*:META-INF/spring-security.xml" />-->
 

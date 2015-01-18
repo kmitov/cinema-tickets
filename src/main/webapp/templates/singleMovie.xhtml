@@ -10,50 +10,50 @@
         <link rel="stylesheet" type="text/css" href="../static/singleMovie.css"> </link>
     </h:head>
 
-    <h:body>
+    <h:body onload="#{movieBean.getDetailedInfo(param['movieID'])}">
     <div  style="background-color: black; width:100%; height: 900px;" >
         <div id="content" style="width: 968px; margin:0 auto;" >
 
             <hr></hr>
                 <div id="movie-element1" class="movie-element" >
                     <h2>
-                        <span class="movie-title">Hobbit: The Battle of The Five Armies</span>
+                        <span class="movie-title">#{movieBean.movie.title}</span>
                     </h2>
                     <div>
-                        <img alt="Hobbit" src="../pictures/hobbit-poster.jpeg" class="movie-poster"/>
+                        <img alt="Hobbit" src="..#{movieBean.movie.imageUrl}" class="movie-poster"/>
                         <div class="movie-details">
                             <div>
                                 <span class="property-name">Length (in min.):</span>
-                                <span class="property-value">160</span>
+                                <span class="property-value">#{movieBean.movie.duration}</span>
                             </div>
                             <div>
                                 <span class="property-name">Language:</span>
-                                <span class="property-value">English</span>
+                                <span class="property-value">#{movieBean.movie.language}</span>
                             </div>
                             <div>
                                 <span class="property-name">Released on:</span>
-                                <span class="property-value">19/12/2014</span>
+                                <span class="property-value">#{movieBean.movie.releaseDate}</span>
                             </div>
                             <div>
                                 <span class="property-name">Rating:</span>
-                                <span class="property-value">7.5</span>
+                                <span class="property-value">#{movieBean.movie.rating}</span>
                             </div>
                             <div>
                                 <span class="property-name">Genre:</span>
-                                <span class="property-value">Adventure, Fantasy</span>
+                                <span class="property-value">TODO</span>
                             </div>
                             <div>
                                 <span class="property-name">Director:</span>
-                                <span class="property-value">Peter Jackson</span>
+                                <span class="property-value">#{movieBean.movie.directors}</span>
                             </div>
                             <div>
                                 <span class="property-name">Stars:</span>
-                                <span class="property-value">Martin Freeman, Ian McKellen, Richard Armitage</span>
+                                <span class="property-value">#{movieBean.movie.actors}</span>
                             </div>
                         </div>
                     </div>
                     <div class="property-summary">
-                        Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
+                        #{movieBean.movie.description}
                     </div>
                     <hr></hr>
                 </div>

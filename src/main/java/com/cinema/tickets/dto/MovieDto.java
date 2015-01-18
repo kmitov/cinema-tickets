@@ -9,20 +9,7 @@ import java.util.Date;
  */
 public class MovieDto {
 
-    private Movie movie;
-
-    public MovieDto(Movie movie){
-        title = movie.getTitle();
-        description = movie.getDescription();
-        imageUrl = movie.getImageUrl();
-        duration = movie.getDuration();
-        language = movie.getLanguage();
-        releaseDate = movie.getReleaseDate();
-        rating = movie.getRating();
-        actors = movie.getActors();
-        directors = movie.getDirectors();
-    }
-
+    private long id;
     private String title;
     private String description;
     private String imageUrl;
@@ -65,14 +52,6 @@ public class MovieDto {
         this.title = title;
     }
 
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
     public String getLanguage() {
         return language;
     }
@@ -111,5 +90,13 @@ public class MovieDto {
 
     public void setDirectors(String directors) {
         this.directors = directors;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

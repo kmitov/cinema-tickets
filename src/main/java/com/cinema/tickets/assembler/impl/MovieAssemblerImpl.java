@@ -10,6 +10,17 @@ import com.cinema.tickets.entity.Movie;
 public class MovieAssemblerImpl implements MovieAssembler {
     @Override
     public MovieDto toMovieDto(Movie movie) {
-        return null;
+        MovieDto movieDto = new MovieDto();
+        movieDto.setActors(movie.getActors());
+        movieDto.setTitle(movie.getTitle());
+        movieDto.setDescription(movie.getDescription());
+        movieDto.setDirectors(movie.getDirectors());
+        movieDto.setDuration(movie.getDuration());
+        movieDto.setId(movie.getId());
+        movieDto.setImageUrl(movie.getImageUrl());
+        movieDto.setRating(movie.getRating());
+        movieDto.setReleaseDate(movie.getReleaseDate());
+        movieDto.setLanguage(movie.getLanguage());
+        return movieDto;
     }
 }

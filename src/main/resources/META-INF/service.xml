@@ -6,6 +6,7 @@
 
     <bean id="movieService" class="com.cinema.tickets.service.MovieService">
         <property name="movieDao" ref="movieDao"/>
+        <property name="movieAssembler" ref="movieAssembler"/>
     </bean>
 
     <bean id="userService" class="com.cinema.tickets.service.UserService">

@@ -162,8 +162,11 @@
                         <div class="movie-text" >
                             <span class="movie-description">#{movieBean.getMovies().get(0).description}</span>
                         </div>
-
-                        <a class="read-more" href="#">Read more></a>
+                        <div>
+                        <h:link value="Read more" includeViewParams="true" outcome="singleMovie" styleClass="read-more">
+                            <f:param name="movieID" value="#{1}"></f:param>
+                        </h:link>
+                        </div>
                     </div>
 
                     <div id="movie4" class="movie-small" >

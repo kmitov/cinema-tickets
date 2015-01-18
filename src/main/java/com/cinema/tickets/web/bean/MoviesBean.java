@@ -11,8 +11,7 @@ public class MoviesBean {
 
     private MovieDto movie;
     MovieService movieService;
-    private List<MovieDto> movies;
-
+//    private List<MovieDto> movies;
 
     public MovieService getMovieService() {
         return movieService;
@@ -22,7 +21,6 @@ public class MoviesBean {
         this.movieService = movieService;
     }
 
-
     public MovieDto getMovie() {
         return movie;
     }
@@ -31,15 +29,16 @@ public class MoviesBean {
         this.movie = movie;
     }
 
-    public void setMovies(List<MovieDto> movies) {
-        this.movies = movies;
-    }
-
-    public List<MovieDto> getMovies() {
-        return movieService.moviesForHomePage();
-    }
+//    public void setMovies(List<MovieDto> movies) {
+//        this.movies = movies;
+//    }
 
     public void getDetailedInfo(long id){
         movie = movieService.getDetailedMovieInfo(id);
     }
+
+    public List<MovieDto> getAdditonalMovies() {
+        return movieService.moviesForHomePage();
+    }
 }
+

@@ -128,57 +128,21 @@
                     </div>
                 </div>
 
-                <!--<div><img u="image" src="pictures/landscape1.jpg" /></div>-->
-                <!--<div><img u="image" src="pictures/landscape2.jpg" /></div>-->
-
                 <div id="additional-movies">
-
-                    <div id="movie1" class="movie-small" >
-                        <h2><span class="movie-title">The Hobbit</span></h2>
-                        <h:graphicImage url="pictures/the-hobbit.jpg" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">The hobbit is the adventure of Bilbo Baggins in Middle Earth.</span>
-                        </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
-
-                    <div id="movie2" class="movie-small" >
-                        <h2><span class="movie-title">Interstellar</span></h2>
-                        <h:graphicImage url="pictures/interstellar.jpeg" styleClass="small-movie-image" />
+                    <ui:repeat var="item" value="#{movieBean.additonalMovies}" >
+                    <div id="#{item.id}" class="movie-small" >
+                        <h2><span class="movie-title">#{item.title}</span></h2>
+                        <h:graphicImage url="#{item.imageUrl}" styleClass="small-movie-image" />
 
                         <div class="movie-text" >
-                            <span class="movie-description">Interstellar is a movie about space, saving the human race, and Mathew McConoughey in a black hole.</span>
+                            <span class="movie-description">#{item.description}</span>
                         </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
-
-                    <div id="movie3" class="movie-small" >
-                        <h2><span class="movie-title">#{movieBean.getMovies().get(0).title}</span></h2>
-                        <h:graphicImage url="#{movieBean.getMovies().get(0).imageUrl}" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">#{movieBean.getMovies().get(0).description}</span>
-                        </div>
-                        <div>
-                        <h:link value="Read more" includeViewParams="true" outcome="singleMovie" styleClass="read-more">
-                            <f:param name="movieID" value="#{1}"></f:param>
+                        <h:link value="Read more>" includeViewParams="true" outcome="singleMovie" styleClass="read-more">
+                            <f:param name="movieID" value="#{item.id}"></f:param>
                         </h:link>
-                        </div>
                     </div>
+                    </ui:repeat>
 
-                    <div id="movie4" class="movie-small" >
-                        <h2><span class="movie-title">Fast and Furious</span></h2>
-                        <h:graphicImage url="pictures/faf.jpg" styleClass="small-movie-image" />
-
-                        <div class="movie-text" >
-                            <span class="movie-description">Fast and furious is a movie about fast cars and hot chicks.</span>
-                        </div>
-
-                        <a class="read-more" href="#">Read more></a>
-                    </div>
                     <span class="stretch"></span>
                 </div>
             </div>

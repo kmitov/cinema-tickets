@@ -21,6 +21,7 @@ public class MovieAssemblerImpl implements MovieAssembler {
         movieDto.setRating(movie.getRating());
         movieDto.setReleaseDate(movie.getReleaseDate());
         movieDto.setLanguage(movie.getLanguage());
+        movieDto.setGenre(movie.getGenre());
         return movieDto;
     }
 }

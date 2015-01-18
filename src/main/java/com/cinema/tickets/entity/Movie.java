@@ -1,6 +1,7 @@
 package com.cinema.tickets.entity;
 
 import com.cinema.tickets.enums.Language;
+import com.cinema.tickets.enums.MovieGenre;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +18,8 @@ public class Movie {
     private String description;
     private String imageUrl;
     private int duration;
-    private String language;
+    private Language language;
+    private MovieGenre genre;
     private Date releaseDate;
     private float rating;
     private String actors;
@@ -71,13 +73,13 @@ public class Movie {
         this.duration = duration;
     }
 
-//    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(name="language", nullable = false)
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
@@ -117,4 +119,13 @@ public class Movie {
         this.directors = directors;
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="genre", nullable = false)
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(MovieGenre genre) {
+        this.genre = genre;
+    }
 }

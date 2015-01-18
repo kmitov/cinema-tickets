@@ -1,7 +1,9 @@
 package com.cinema.tickets.dto;
 
-import com.cinema.tickets.entity.Movie;
+import com.cinema.tickets.enums.MovieGenre;
+import com.cinema.tickets.enums.Language;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -9,12 +11,14 @@ import java.util.Date;
  */
 public class MovieDto {
 
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
     private long id;
     private String title;
     private String description;
     private String imageUrl;
     private int duration;
-    private String language;
+    private Language language;
+    private MovieGenre genre;
     private Date releaseDate;
     private float rating;
     private String actors;
@@ -52,11 +56,11 @@ public class MovieDto {
         this.title = title;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
@@ -99,4 +103,17 @@ public class MovieDto {
     public void setId(long id) {
         this.id = id;
     }
+
+    public String getReleaseDateAsString(){
+        return releaseDate!=null?dateFormat.format(releaseDate):"Unknown";
+    }
+
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(MovieGenre genre) {
+        this.genre = genre;
+    }
 }
+

@@ -33,6 +33,8 @@ public class MovieService {
         List<Movie> movies = movieDao.getLatestMovies();
         for (Movie movie : movies){
             moviesForHomepage.add(movieAssembler.toMovieDto(movie));
+            if(moviesForHomepage.size()==4)
+                break;
         }
         return moviesForHomepage;
     }

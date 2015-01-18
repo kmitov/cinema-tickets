@@ -28,4 +28,3 @@ set language = 'English';
 
 select * from movies;
 
-

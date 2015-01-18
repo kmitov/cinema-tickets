@@ -12,6 +12,9 @@ public class UserBean {
         userService.createUserAccount(this.userDto);
     }
 
+    public void createUser(){
+        userDto = new UserDto();
+    }
     public UserService getUserService() {
         return userService;
     }

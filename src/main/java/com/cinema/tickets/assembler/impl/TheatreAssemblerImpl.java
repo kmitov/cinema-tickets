@@ -9,7 +9,6 @@ import com.cinema.tickets.entity.Theatre;
  */
 public class TheatreAssemblerImpl implements TheatreAssembler {
 
-
     @Override
     public TheatreDto toDto(Theatre theatre) {
         return null;

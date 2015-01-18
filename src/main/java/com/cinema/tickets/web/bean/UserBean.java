@@ -24,4 +24,12 @@ public class UserBean {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
+
+    public UserDto getUserDto() {
+        return userDto;
+    }
+
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
+    }
 }

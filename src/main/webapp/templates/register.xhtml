@@ -17,19 +17,19 @@
                 <div id="login-info">
                     <div class="element">
                         <span class="property-label" id="name-label">Name:</span>
-                        <p:inputText id="name-value" required="true" value="#{userBean.firstName}"/>
+                        <p:inputText id="name-value" required="true" value="#{userBean.userDto.firstName}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="surname-label">Surname:</span>
-                        <p:inputText id="surname-value" required="true" value="#{userBean.lastName}"/>
+                        <p:inputText id="surname-value" required="true" value="#{userBean.userDto.lastName}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="username-label">Username:</span>
-                        <p:inputText id="username-value" required="true" value="#{userBean.username}"/>
+                        <p:inputText id="username-value" required="true" value="#{userBean.userDto.username}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="password-label">Password:</span>
-                        <p:password id="password-value" required="true" value="#{userBean.password}"/>
+                        <p:password id="password-value" required="true" value="#{userBean.userDto.password}"/>
                     </div>
                     <div class="element">
                         <span class="property-label" id="confirm-password-label">Confirm Password:</span>

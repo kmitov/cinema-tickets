@@ -23,14 +23,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     }
 
     @Override
-    public void createUserAccount(String userName, String password, String firstName, String lastName) {
-        User newUserAccount = new User();
-        newUserAccount.setName(userName);
-        newUserAccount.setPassword(password);
-        newUserAccount.setUserName(firstName + " " + lastName);
-        newUserAccount.setUserRole(UserRole.ROLE_USER);
-        newUserAccount.setEnabled(false);
-
-        getSessionFactory().getCurrentSession().save(newUserAccount);
+    public void createUserAccount(User newUser) {
+//        User newUserAccount = new User();
+//        newUserAccount.setName(userName);
+//        newUserAccount.setPassword(password);
+//        newUserAccount.setUserName(firstName + " " + lastName);
+//        newUserAccount.setUserRole(UserRole.ROLE_USER);
+//        newUserAccount.setEnabled(false);
+        getSessionFactory().getCurrentSession().save(newUser);
     }
 }

@@ -15,107 +15,43 @@
             <div id="content" style="width: 968px; margin:0 auto;" >
 
                 <div id="all-movies">
-                    <div id="movie-element1" class="movie-element" >
-                        <h2>
-                            <span class="movie-title">Hobbit: The Battle of The Five Armies</span>
-                        </h2>
-                        <img alt="Hobbit" src="../pictures/hobbit-poster.jpeg" class="movie-poster"/>
-                        <div class="movie-details">
-                            <div>
-                                <span class="property-name">Length (in min.):</span>
-                                <span class="property-value">160</span>
+                    <ui:repeat var="item" value="#{movieBean.allMoviesOnScreen}">
+                        <div id="#{item.id}" class="movie-element" >
+                            <h2>
+                                <span class="movie-title">#{item.title}</span>
+                            </h2>
+                            <img alt="Hobbit" src="..#{item.imageUrl}" class="movie-poster"/>
+                            <div class="movie-details">
+                                <div>
+                                    <span class="property-name">Length (in min.):</span>
+                                    <span class="property-value">#{item.duration}</span>
+                                </div>
+                                <div>
+                                    <span class="property-name">Language:</span>
+                                    <span class="property-value">#{item.language}</span>
+                                </div>
+                                <div>
+                                    <span class="property-name">Released on:</span>
+                                    <span class="property-value">#{item.releaseDateAsString}</span>
+                                </div>
+                                <div>
+                                    <span class="property-name">Rating:</span>
+                                    <span class="property-value">#{item.rating}</span>
+                                </div>
+                                <div>
+                                    <span class="property-name">Genre:</span>
+                                    <span class="property-value">#{item.genre}</span>
+                                </div>
+                                <div class="property-summary">
+                                    #{item.description}
+                                </div>
+                                <h:link value="Read more>" includeViewParams="true" outcome="singleMovie" styleClass="read-more">
+                                    <f:param name="movieID" value="#{item.id}"></f:param>
+                                </h:link>
                             </div>
-                            <div>
-                                <span class="property-name">Language:</span>
-                                <span class="property-value">English</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Released on:</span>
-                                <span class="property-value">19/12/2014</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Rating:</span>
-                                <span class="property-value">7.5</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Genre:</span>
-                                <span class="property-value">Adventure, Fantasy</span>
-                            </div>
-                            <div class="property-summary">
-                                Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
-                            </div>
-                            <a class="read-more" href="#">Read more></a>
+                            <hr></hr>
                         </div>
-                        <hr></hr>
-                    </div>
-
-                    <div id="movie-element2" class="movie-element" >
-                        <h2>
-                            <span class="movie-title">Hobbit: The Battle of The Five Armies</span>
-                        </h2>
-                        <img alt="Hobbit" src="../pictures/hobbit-poster.jpeg" class="movie-poster"/>
-                        <div class="movie-details">
-                            <div>
-                                <span class="property-name">Length (in min.):</span>
-                                <span class="property-value">160</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Language:</span>
-                                <span class="property-value">English</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Released on:</span>
-                                <span class="property-value">19/12/2014</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Rating:</span>
-                                <span class="property-value">7.5</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Genre:</span>
-                                <span class="property-value">Adventure, Fantasy</span>
-                            </div>
-                            <div class="property-summary">
-                                Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
-                            </div>
-                            <a class="read-more" href="#">Read more></a>
-                        </div>
-                        <hr></hr>
-                    </div>
-
-                    <div id="movie-element3" class="movie-element" >
-                        <h2>
-                            <span class="movie-title">Hobbit: The Battle of The Five Armies</span>
-                        </h2>
-                        <img alt="Hobbit" src="../pictures/hobbit-poster.jpeg" class="movie-poster"/>
-                        <div class="movie-details">
-                            <div>
-                                <span class="property-name">Length (in min.):</span>
-                                <span class="property-value">160</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Language:</span>
-                                <span class="property-value">English</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Released on:</span>
-                                <span class="property-value">19/12/2014</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Rating:</span>
-                                <span class="property-value">7.5</span>
-                            </div>
-                            <div>
-                                <span class="property-name">Genre:</span>
-                                <span class="property-value">Adventure, Fantasy</span>
-                            </div>
-                            <div class="property-summary">
-                                Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.
-                            </div>
-                            <a class="read-more" href="#">Read more></a>
-                        </div>
-                        <hr></hr>
-                    </div>
+                    </ui:repeat>
                 </div>
             </div>
         </div>

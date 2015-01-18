@@ -29,16 +29,16 @@ public class MoviesBean {
         this.movie = movie;
     }
 
-//    public void setMovies(List<MovieDto> movies) {
-//        this.movies = movies;
-//    }
-
     public void getDetailedInfo(long id){
         movie = movieService.getDetailedMovieInfo(id);
     }
 
     public List<MovieDto> getAdditonalMovies() {
         return movieService.moviesForHomePage();
+    }
+
+    public List<MovieDto> getAllMoviesOnScreen(){
+        return movieService.getAllMoviesOnScreen();
     }
 }
 

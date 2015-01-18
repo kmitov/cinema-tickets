@@ -43,4 +43,14 @@ public class MovieService {
         Movie movie = movieDao.getMovie(movieID);
         return movieAssembler.toMovieDto(movie);
     }
+
+    public List<MovieDto> getAllMoviesOnScreen(){
+        List<MovieDto> moviesOnScreen = new ArrayList<MovieDto>();
+        List<Movie> movies = movieDao.getLatestMovies();
+        for (Movie movie : movies){
+            moviesOnScreen.add(movieAssembler.toMovieDto(movie));
+        }
+        return moviesOnScreen;
+    }
+
 }

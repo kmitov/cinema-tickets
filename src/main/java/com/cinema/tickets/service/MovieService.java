@@ -14,4 +14,6 @@ public interface MovieService {
     public MovieDto getDetailedMovieInfo(long movieID);
 
     public List<MovieDto> moviesForHomePage();
+
+    public MovieDto getById(Long id);
 }

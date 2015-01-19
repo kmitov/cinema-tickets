@@ -26,6 +26,12 @@
         <constructor-arg ref="projectionService"/>
     </bean>
 
+    <bean id="cashierBean" class="com.cinema.tickets.web.bean.CashierBean">
+        <constructor-arg ref="movieService"/>
+        <constructor-arg ref="projectionService"/>
+        <constructor-arg ref="reservationService"/>
+    </bean>
+
 
 
 </beans>

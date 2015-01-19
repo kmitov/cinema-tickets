@@ -17,4 +17,6 @@ public interface MovieDao extends BaseDao<Movie>{
     List<Movie> getAllMoviesOnScreen();
 
     Movie getMovie(long id);
+
+    Movie getByProjectionId(Long id);
 }

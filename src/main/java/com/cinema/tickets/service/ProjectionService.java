@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface ProjectionService {
 
-   ProjectionDto addProjection(Long movieId, Long theatreId);
+    ProjectionDto addProjection(Long movieId, Long theatreId);
 
-   List<ProjectionDto> getAllProjections();
+    List<ProjectionDto> getAllProjections();
+
+    ProjectionDto getById(Long id);
 }

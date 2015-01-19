@@ -14,7 +14,7 @@ public class MovieDaoImpl extends BaseDaoImpl<Movie> implements MovieDao {
 
     @Override
     public List<Movie> getLatestMovies() {
-       return getSessionFactory().getCurrentSession().createQuery("FROM Movie AS m order by m.releaseDate desc").list();
+        return getSessionFactory().getCurrentSession().createQuery("FROM Movie AS m order by m.releaseDate desc").list();
     }
 
     @Override
@@ -28,5 +28,16 @@ public class MovieDaoImpl extends BaseDaoImpl<Movie> implements MovieDao {
                 .setParameter("id", id).uniqueResult();
 
         return movie != null ? (Movie)movie : null;
+    }
+
+    @Override
+    public Movie getByProjectionId(Long id) {
+        return (Movie) getSessionFactory().getCurrentSession().createSQLQuery(
+                "SELECT id, actors, desription, directors, duration, genre, imageUrl, language, rating, releaseDate, title" +
+                        "    FROM movies " +
+                        "       INNER JOIN projections WHERE movies.id = projections.movieId " +
+                        "    WHERE projections.id= :projectionId " +
+                        "    LIMIT 1 ").addEntity(Movie.class)
+                .setParameter("projectionId", id).uniqueResult();
     }
 }

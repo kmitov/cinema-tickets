@@ -35,6 +35,12 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
+    @Transactional
+    public MovieDto getById(Long id) {
+        return movieAssembler.toMovieDto(movieDao.get(id));
+    }
+
+    @Override
     public MovieDto getDetailedMovieInfo(long movieID){
         Movie movie = movieDao.getMovie(movieID);
         return movieAssembler.toMovieDto(movie);

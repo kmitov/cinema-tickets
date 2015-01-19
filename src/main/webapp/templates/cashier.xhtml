@@ -8,60 +8,66 @@
         >
 
     <ui:define name="content" >
-    <h:outputStylesheet name="css/styles_programme.css" />
+        <h:outputStylesheet name="css/styles_programme.css" />
+
+        <f:event listener="#{cashierBean.refreshOnLoad}" type="postAddToView" />
+
+        <h:form>
             <p:growl id="msgs"/>
 
-            <div style="background-color: black; width:100%; height: 600px;">
-                <div id="content" style="width: 968px; margin:0 auto;">
-                    <div id="date">
-                        <p:outputLabel for="mask" value=""/>
-                        <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true"/>
+            <h:outputText styleClass="white-label" value="Reservations"/>
+
+            <div id="program-header">
+                <div class="program-header-item-small">
+                    <span class="white-text" >Id</span>
+                </div>
+                <div class="program-header-item">
+                    <span class="white-text" >Date</span>
+                </div>
+                <div class="program-header-item-movie">
+                    <span class="white-text" >Movie</span>
+                </div>
+                <div class="program-header-item-small">
+                    <span class="white-text" >Tickets</span>
+                </div>
+
+                <div class="program-header-item">
+                    <span class="white-text" >Numbers</span>
+                </div>
+
+                <div class="program-header-item-small">
+                    <span class="white-text" >Action</span>
+                </div>
+
+            </div>
+
+            <ui:repeat var="item" value="#{cashierBean.reservations}" >
+                <div>
+                    <div class="program-header-item-small">
+                        <h:outputText styleClass="white-text" value="#{item.id}" />
                     </div>
-                    <div id="Projection">
-                        <p:selectOneMenu id="dropdownProjection" value="#{dropdownView.country}">
-                            <p:ajax listener="#{dropdownView.onCountryChange}" update="dropdownProjection"/>
-                            <f:selectItem itemLabel="Select projection" itemValue="" noSelectionOption="true"/>
-                            <f:selectItems value="#{dropdownView.countries}"/>
-                        </p:selectOneMenu>
+                    <div class="program-header-item">
+                        <h:outputText styleClass="white-text" value="#{item.date}" />
                     </div>
-
-                    <div id="contentTable">
-                        <h:form>
-                            <p:dataTable styleClass="table" var="ticket" value="#{dtTicketFilterView.tickets}" widgetVar="ticketsTable" filteredValue="#{dtTicketFilterView.filteredTickets}">
-
-                                <f:facet name="header">
-                                    <p:outputPanel style="text-align: right;">
-                                        <h:outputText value="Search all fields:" style="font-size: 82%"/>
-                                        <p:inputText id="globalFilter" onkeyup="PF('ticketsTable').filter()" style="width:150px; font-size: 82%" placeholder="Enter keyword"/>
-                                    </p:outputPanel>
-                                </f:facet>
-                                <p:column styleClass="colID" headerText="Ticket" filterBy="#{ticket.id}" filterMatchMode="contains" filterStyleClass="filterInputFieldID">
-                                    <h:outputText value="#{ticket.id}"/>
-                                </p:column>
-
-                                <p:column id="colUser" headerText="User" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputFieldUser">
-                                    <h:outputText value="#{ticket.user}"/>
-                                </p:column>
-
-                                <p:column styleClass="colStatus" headerText="Status" filterBy="#{ticket.taken}" filterMatchMode="equals">
-                                    <f:facet name="filter">
-                                        <p:selectOneButton onchange="PF('ticketsTable').filter()" styleClass="filterButtons">
-                                            <f:converter converterId="javax.faces.Boolean"/>
-                                            <f:selectItem itemLabel="All" itemValue=""/>
-                                            <f:selectItem itemLabel="Taken" itemValue="true"/>
-                                            <f:selectItem itemLabel="Not taken" itemValue="false"/>
-                                        </p:selectOneButton>
-                                    </f:facet>
-                                    <!--<div id="Status">-->
-                                    <p:selectBooleanButton id="takenButton" value="#{ticket.taken}" onLabel="Taken" offLabel="Not taken" onIcon="ui-icon-check" offIcon="ui-icon-close" styleClass="takenButton">
-                                        <!--<p:ajax update="msgs" listener="" />-->
-                                    </p:selectBooleanButton>
-                                    <!--</div>-->
-                                </p:column>
-                            </p:dataTable>
-                        </h:form>
+                    <div class="program-header-item-movie">
+                        <h:outputText styleClass="white-text" value="#{item.movieTitle}" />
+                    </div>
+                    <div class="program-header-item-small">
+                        <h:outputText styleClass="white-text" value="#{item.tickets}" />
+                    </div>
+                    <div class="program-header-item">
+                        <h:outputText styleClass="white-text" value="#{item.numbers}" />
+                    </div>
+                    <div class="program-header-item-small">
+                        <h:commandLink styleClass="white-text" value="Cancel" actionListener="#{cashierBean.deleteReservation(item.id)}" />
                     </div>
                 </div>
-            </div>
+            </ui:repeat>
+        </h:form>
+
+
+
+
+
     </ui:define>
 </ui:composition>

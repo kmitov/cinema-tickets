@@ -37,6 +37,12 @@ public class ProjectionServiceImpl implements ProjectionService {
         return projectionAssembler.toDtoList(projectionDao.loadAll());
     }
 
+    @Override
+    @Transactional
+    public ProjectionDto getById(Long id) {
+        return projectionAssembler.toDto(projectionDao.get(id));
+    }
+
     @Required
     public void setProjectionAssembler(ProjectionAssembler projectionAssembler) {
         this.projectionAssembler = projectionAssembler;

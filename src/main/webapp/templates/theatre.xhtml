@@ -35,7 +35,8 @@
             <p:remoteCommand name="remoteCommand" actionListener="#{theatreBean.reservePlace}"/>
             <p:growl id="growl" showDetail="true" sticky="true" />
 
-            <h:outputLabel value="INTERSTELLAR" styleClass="white-label movie-title-theatre" ></h:outputLabel>
+            <h:outputLabel value="#{theatreBean.selectedProjection.formattedDate}" styleClass="white-label movie-title-theatre" ></h:outputLabel>
+            <h:outputLabel value="#{theatreBean.selectedMovie.title}" styleClass="white-label movie-title-theatre" ></h:outputLabel>
 
             <div id="theatre">
                 <ui:repeat value="#{theatreBean.rows}" var="row" >

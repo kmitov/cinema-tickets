@@ -51,6 +51,12 @@ public class ReservationServiceImpl implements ReservationService {
         return ticketAssembler.toDtoList(reservationDao.getByProjectionId(projectionId));
     }
 
+    @Override
+    @Transactional
+    public List<ReservationDto> getAllReservations() {
+        return reservationAssembler.toDtoList(reservationDao.loadAll());
+    }
+
     @Required
     public void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao = reservationDao;

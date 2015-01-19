@@ -4,6 +4,7 @@ import com.cinema.tickets.assembler.ReservationAssembler;
 import com.cinema.tickets.dto.ReservationDto;
 import com.cinema.tickets.entity.Reservation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,9 +37,10 @@ public class ReservationAssemblerImpl implements ReservationAssembler {
 
     @Override
     public List<ReservationDto> toDtoList(List<Reservation> entities) {
+        final List<ReservationDto> dtos = new ArrayList<ReservationDto>();
         for(Reservation reservation : entities) {
-
+            dtos.add(toDto(reservation));
         }
-        return null;
+        return dtos;
     }
 }

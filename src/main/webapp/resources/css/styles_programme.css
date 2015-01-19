@@ -3,6 +3,11 @@
     display: inline-block;
 }
 
+.program-header-item-small {
+    width: 50px;
+    display: inline-block;
+}
+
 .program-header-item-movie {
     width: 400px;
     display: inline-block;

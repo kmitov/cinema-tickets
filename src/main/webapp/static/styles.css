@@ -119,22 +119,33 @@ h2 {
     font: normal normal normal 25px/1.3em Forum,serif;
     color: #EFEFEF;
     margin-bottom: 10px;
+    display: inline-block;
+    height: 50px;
 }
 
 #footer {
-    height:100px;
+    height:70px;
     border-top: 1px solid white;
     margin-top: 20px;
 }
 
 .site-content {
     width: 968px; margin:0 auto;
+    padding-bottom:10px;
 }
 
 .developers {
     width: 150px;
     vertical-align: middle;
     display: table;
+}
+
+.footer-title{
+    font: normal normal normal 25px/1.3em Forum,serif;
+    color: #EFEFEF;
+    margin-bottom: 2px;
+    display: inline-block;
+    height: 15px;
 }
 
 .container span {

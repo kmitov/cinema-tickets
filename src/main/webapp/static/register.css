@@ -3,7 +3,8 @@ body {
 }
 
 #login-info{
-    text-align: center;
+    margin-top: 50px;
+    margin-left: 24%;
     color: white;
     margin-top: 50px;
     font: 16px/1.3em 'Open Sans', sans-serif;
@@ -23,23 +24,27 @@ body {
 }
 
 #name-label{
-    margin-left: 92px;
+    margin-left: 90px;
 }
 
 #surname-label{
-    margin-left: 70px;
+    margin-left: 66px;
 }
 
 #username-label{
-    margin-left: 62px;
+    margin-left: 56px;
 }
 
 #password-label{
-    margin-left: 64px;
+    margin-left: 58px;
 }
 
 #email-label{
-    margin-left: 96px;
+    margin-left: 90px;
+}
+#confirm-password-label
+{
+    margin-left: -11px;
 }
 
 
@@ -52,5 +57,5 @@ body {
 
 .btns-element{
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 230px;
 }

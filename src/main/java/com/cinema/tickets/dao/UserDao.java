@@ -10,5 +10,5 @@ public interface UserDao extends BaseDao<User> {
 
     User getByUsername(String username);
 
-    void createUserAccount(User newUser);
+    boolean createUserAccount(User newUser);
 }

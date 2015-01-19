@@ -1,0 +1,56 @@
+body {
+    background-color: black;
+}
+
+#login-info{
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+    font: 16px/1.3em 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    font-stretch: normal;
+}
+
+.property-label{
+    margin-right: 10px;
+}
+
+.element{
+    margin-top: 10px;
+}
+
+#name-label{
+    margin-left: 92px;
+}
+
+#surname-label{
+    margin-left: 70px;
+}
+
+#username-label{
+    margin-left: 62px;
+}
+
+#password-label{
+    margin-left: 64px;
+}
+
+#email-label{
+    margin-left: 96px;
+}
+
+
+.btn{
+    color: black;
+    margin-left: 10px;
+    padding: 5px;
+    font: 17px/1.5em 'Open Sans', sans-serif;
+}
+
+.btns-element{
+    margin-top: 10px;
+    margin-left: 50px;
+}

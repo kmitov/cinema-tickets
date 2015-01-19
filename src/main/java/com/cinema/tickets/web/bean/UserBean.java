@@ -25,6 +25,13 @@ public class UserBean extends SimpleUrlAuthenticationSuccessHandler {
 
     private String userName;
     private String password;
+    private boolean isRegistrationSuccessful;
+    private boolean isUsernameTaken;
+
+    public UserBean()
+    {
+        userDto = new UserDto();
+    }
 
     public String getUserName() {
         return userName;
@@ -43,11 +50,9 @@ public class UserBean extends SimpleUrlAuthenticationSuccessHandler {
     }
 
     public void createAccount(){
-        userService.createUserAccount(this.userDto);
-    }
-
-    public void createUser(){
-        userDto = new UserDto();
+        boolean isAccountCreated = userService.createUserAccount(this.userDto);
+        setRegistrationSuccessful(isAccountCreated);
+        setUsernameTaken(!isRegistrationSuccessful());
     }
 
     public void setUserService(UserService userService) {
@@ -76,5 +81,21 @@ public class UserBean extends SimpleUrlAuthenticationSuccessHandler {
         final String userName = SecurityContextHolder.getContext().getAuthentication().getName();
         loggedInUser = userService.getByUsername(userName);
         super.onAuthenticationSuccess(request, response, authentication);
+    }
+
+    public boolean isRegistrationSuccessful() {
+        return isRegistrationSuccessful;
+    }
+
+    public void setRegistrationSuccessful(boolean isRegistrationSuccessful) {
+        this.isRegistrationSuccessful = isRegistrationSuccessful;
+    }
+
+    public boolean isUsernameTaken() {
+        return isUsernameTaken;
+    }
+
+    public void setUsernameTaken(boolean isUsernameTaken) {
+        this.isUsernameTaken = isUsernameTaken;
     }
 }

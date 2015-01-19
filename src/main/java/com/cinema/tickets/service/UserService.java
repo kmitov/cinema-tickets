@@ -9,7 +9,7 @@ public interface UserService {
 
     UserDto getByUsername(String username);
 
-    void createUserAccount(UserDto newUser);
+    boolean createUserAccount(UserDto newUser);
 
     void createAdminAccount(UserDto newUser);
 }

@@ -12,10 +12,10 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     private UserAssembler userAssembler;
 
-    public void createUserAccount(UserDto newUser){
+    public boolean createUserAccount(UserDto newUser){
         newUser.setUserRole(UserRole.ROLE_USER);
         newUser.setEnabled(true);
-        userDao.createUserAccount(userAssembler.toEntity(newUser));
+        return userDao.createUserAccount(userAssembler.toEntity(newUser));
     }
 
     public void createAdminAccount(UserDto newUser){

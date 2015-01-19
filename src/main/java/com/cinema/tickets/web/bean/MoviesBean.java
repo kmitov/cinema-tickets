@@ -11,7 +11,6 @@ public class MoviesBean {
 
     private MovieDto movie;
     private String movieId;
-
 //    private List<MovieDto> movies;
 
     public MoviesBean(MovieService movieService) {
@@ -45,6 +44,14 @@ public class MoviesBean {
     public void setMovieId(String movieId) {
         this.movieId = movieId;
         this.movie = movieService.getDetailedMovieInfo(Long.valueOf(movieId));
+    }
+
+    public MovieService getMovieService() {
+        return movieService;
+    }
+
+    public void setMovieService(MovieService movieService) {
+        this.movieService = movieService;
     }
 }
 

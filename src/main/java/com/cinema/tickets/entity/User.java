@@ -54,7 +54,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     public String getUserName() {
         return userName;
     }

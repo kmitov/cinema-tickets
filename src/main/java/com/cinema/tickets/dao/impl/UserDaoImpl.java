@@ -3,8 +3,8 @@ package com.cinema.tickets.dao.impl;
 import com.cinema.tickets.dao.UserDao;
 import com.cinema.tickets.dao.base.BaseDaoImpl;
 import com.cinema.tickets.entity.User;
-import com.cinema.tickets.enums.UserRole;
 import org.hibernate.Query;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -23,13 +23,17 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     }
 
     @Override
-    public void createUserAccount(User newUser) {
-//        User newUserAccount = new User();
-//        newUserAccount.setName(userName);
-//        newUserAccount.setPassword(password);
-//        newUserAccount.setUserName(firstName + " " + lastName);
-//        newUserAccount.setUserRole(UserRole.ROLE_USER);
-//        newUserAccount.setEnabled(false);
-        getSessionFactory().getCurrentSession().save(newUser);
+    public boolean createUserAccount(User newUser) {
+        final StringBuilder queryString = new StringBuilder();
+        queryString.append("FROM User AS u WHERE u.userName = :username");
+        final Query query = getSessionFactory().getCurrentSession().createQuery(queryString.toString());
+        query.setParameter("username", newUser.getUserName());
+
+        if (query.uniqueResult()!= null) {
+            return false;
+        } else {
+            getSessionFactory().getCurrentSession().save(newUser);
+            return true;
+        }
     }
 }

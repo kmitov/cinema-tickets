@@ -22,4 +22,10 @@ public class ReservationDaoImpl extends BaseDaoImpl<Reservation> implements Rese
         query.setParameter("projectionId", projectionId);
         return query.list();
     }
+
+    public void deleteReservation(long reservationID){
+        getSessionFactory().getCurrentSession()
+                .createQuery("delete Reservation where id=:reservationID")
+                .setParameter("reservationID",reservationID).executeUpdate();
+    }
 }

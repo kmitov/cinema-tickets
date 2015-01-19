@@ -8,6 +8,5 @@ import com.cinema.tickets.entity.Ticket;
  * Created by kmitov on 1/19/15.
  */
 public interface TicketDao extends BaseDao<Ticket> {
-
-
+    void deleteTicketsForReservation(long reservationID);
 }

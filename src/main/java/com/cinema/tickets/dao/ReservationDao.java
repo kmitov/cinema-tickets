@@ -12,4 +12,6 @@ import java.util.List;
 public interface ReservationDao extends BaseDao<Reservation> {
 
     public List<Ticket> getByProjectionId(Long projectionId);
+
+    void deleteReservation(long reservationID);
 }

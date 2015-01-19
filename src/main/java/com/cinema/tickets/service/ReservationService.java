@@ -16,4 +16,6 @@ public interface ReservationService {
     List<TicketDto> getReservationsForProjection(Long projectionId);
 
     List<ReservationDto> getAllReservations();
+
+    void deleteReservation(long reservationId);
 }

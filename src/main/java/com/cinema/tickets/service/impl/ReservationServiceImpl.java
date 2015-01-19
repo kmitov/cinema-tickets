@@ -76,4 +76,11 @@ public class ReservationServiceImpl implements ReservationService {
     public void setReservationAssembler(ReservationAssembler reservationAssembler) {
         this.reservationAssembler = reservationAssembler;
     }
+
+    @Override
+    @Transactional
+    public void deleteReservation(long reservationId){
+        ticketDao.deleteTicketsForReservation(reservationId);
+        reservationDao.deleteReservation(reservationId);
+    }
 }

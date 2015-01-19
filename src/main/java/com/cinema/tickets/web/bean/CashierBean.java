@@ -117,4 +117,9 @@ public class CashierBean {
             this.numbers = numbers;
         }
     }
+
+    public void deleteReservation(long id){
+        reservationService.deleteReservation(id);
+        refreshReservations();
+    }
 }

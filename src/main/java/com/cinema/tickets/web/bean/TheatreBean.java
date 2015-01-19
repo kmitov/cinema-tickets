@@ -1,18 +1,17 @@
 package com.cinema.tickets.web.bean;
 
-import com.cinema.tickets.dto.ReservationDto;
 import com.cinema.tickets.dto.TheatreRowDto;
 import com.cinema.tickets.dto.TheatreSeatDto;
 import com.cinema.tickets.dto.TicketDto;
-import com.cinema.tickets.entity.Reservation;
 import com.cinema.tickets.service.ReservationService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static com.cinema.tickets.utils.MessagingUtil.addMessage;
 
 /**
  * Created by kmitov on 1/14/15.
@@ -24,16 +23,12 @@ public class TheatreBean {
     private List<TheatreRowDto> rows;
     private List<TicketDto> reservedTickets;
     private List<TicketDto> tickets;
-    private List<ReservationDto> reservationDtos;
 
-    private Long movieId;
+    private Long projectionId;
+    private Long theatreId;
+    private Long userId;
 
     private static final int MAX_SEATS_PER_ROW = 12;
-
-    //TEST DATA
-    private static final Long PROJECTION_ID = 1L;
-    private static final Long THEATRE_ID = 1L;
-    private static final Long USER_ID = 1L;
 
     //Dummy constructor to produce an example theatre
     public TheatreBean(ReservationService reservationService) {
@@ -55,7 +50,6 @@ public class TheatreBean {
         }
 
         tickets = new ArrayList<TicketDto>();
-        reservedTickets = reservationService.getReservationsForProjection(PROJECTION_ID);
     }
 
     public List<TheatreRowDto> getRows() {
@@ -65,21 +59,27 @@ public class TheatreBean {
     public void reservePlace() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String seatAndRowIds = params.get("seatId");
-        Long rowId = Long.valueOf(seatAndRowIds.substring(seatAndRowIds.indexOf("row") + 3, seatAndRowIds.indexOf("seat")));
-        Long seatId = Long.valueOf(seatAndRowIds.substring(seatAndRowIds.indexOf("seat")+4));
-        final TicketDto ticketDto = new TicketDto();
-        ticketDto.setSeatId(seatId);
-        ticketDto.setRowId(rowId);
-        ticketDto.setReservationId(1l);
-        ticketDto.setProjectionId(1l);
-        ticketDto.setTheatreId(1l);
-        tickets.add(ticketDto);
+        if(seatAndRowIds != null && !seatAndRowIds.isEmpty()) {
+            Long rowId = Long.valueOf(seatAndRowIds.substring(seatAndRowIds.indexOf("row") + 3, seatAndRowIds.indexOf("seat")));
+            Long seatId = Long.valueOf(seatAndRowIds.substring(seatAndRowIds.indexOf("seat")+4));
+            final TicketDto ticketDto = new TicketDto();
+            ticketDto.setSeatId(seatId);
+            ticketDto.setRowId(rowId);
+            ticketDto.setProjectionId(projectionId);
+            ticketDto.setTheatreId(theatreId);
+            tickets.add(ticketDto);
+        }
     }
 
     public void reserveSelectedTickets(ActionEvent actionEvent) {
-        reservationService.reserveTickets(tickets, PROJECTION_ID, THEATRE_ID, USER_ID);
-        reservedTickets.addAll(tickets);
+        reservationService.reserveTickets(tickets, projectionId, theatreId, userId);
+        boolean success = reservedTickets.addAll(tickets);
         tickets = new ArrayList<TicketDto>();
+        if(success) {
+            addMessage("Your tickets have been reserved!","Success");
+            return;
+        }
+        addMessage("We were unable to reserve your tickets!","Failed");
     }
 
     public String checkSeatForReservation(TheatreSeatDto theatreSeatDto) {
@@ -92,4 +92,28 @@ public class TheatreBean {
         return "";
     }
 
+    public Long getTheatreId() {
+        return theatreId;
+    }
+
+    public void setTheatreId(Long theatreId) {
+        this.theatreId = theatreId;
+    }
+
+    public Long getProjectionId() {
+        return projectionId;
+    }
+
+    public void setProjectionId(Long projectionId) {
+        this.projectionId = projectionId;
+        this.reservedTickets = reservationService.getReservationsForProjection(projectionId);
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

@@ -3,45 +3,59 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="/templates/globalTemplate.xhtml"
 >
 
 <ui:define name="content" >
 
     <h:outputStylesheet name="css/styles_programme.css" />
+    <h:outputStylesheet name="css/addProjections.css" />
+
+    <f:event listener="#{programmeBean.refreshOnLoad}" type="postAddToView" />
 
     <div  style="background-color: black; width:100%;" >
         <div id="content" >
-            <div id="date">
-                <p:outputLabel for="mask" value=""  />
-                <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true"  />
-            </div>
+
             <div id="table">
-                <table width="100%" >
-                    <tr>
-                        <td class="header">Starts</td>
-                        <td class="header">Duration</td>
-                        <td class="header">Movie</td>
-                        <td class="header" style="text-align: right">Tickets</td>
-                    </tr>
-                    <tr>
-                        <td ><a href="#">17:00 h</a></td>
-                        <td >90 min</td>
-                        <td><a href="#">The Shawshank Redemption</a></td>
-                        <td class="right"><h:link value="Buy tickets" outcome="/templates/theatre.jsf"></h:link></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">20:00 h</a></td>
-                        <td>140 min</td>
-                        <td><a href="#">The Godfather</a></td>
-                        <td class="right">
-                            <h:link value="Buy tickets" outcome="/templates/theatre.jsf"></h:link>
-                            <a href="#"></a>
-                        </td>
-                    </tr>
+                <div id="program-header">
+                    <div class="program-header-item">
+                        <span class="white-text" >Date</span>
+                    </div>
+                    <div class="program-header-item">
+                        <span class="white-text" >Duration</span>
+                    </div>
+                    <div class="program-header-item-movie">
+                        <span class="white-text" >Movie</span>
+                    </div>
+                    <div class="program-header-item">
+                        <span class="white-text" >Tickets</span>
+                    </div>
+                </div>
 
+                <ui:repeat var="item" value="#{programmeBean.movieProjections}" >
+                    <div>
+                        <div class="program-header-item">
+                            <h:outputText styleClass="white-text" value="#{item.date}" />
+                        </div>
+                        <div class="program-header-item">
+                            <h:outputText styleClass="white-text" value="#{item.duration}" />
+                        </div>
+                        <div class="program-header-item-movie">
+                            <h:link value="#{item.movieTitle}" styleClass="buy-ticket-link" outcome="/templates/singleMovie.jsf">
+                                <f:param name="movieID" value="#{item.movieId}"></f:param>
+                            </h:link>
+                        </div>
+                        <div class="program-header-item">
+                            <h:link value="Buy Tickets" styleClass="buy-ticket-link" outcome="/templates/theatre.jsf">
+                                <f:param name="projectionId" value="#{item.projectionId}"></f:param>
+                                <f:param name="theatreId" value="#{item.theatreId}"></f:param>
+                                <f:param name="userId" value="#{userBean.loggedInUser.id}"></f:param>
+                            </h:link>
+                        </div>
+                    </div>
+                </ui:repeat>
 
-                </table>
             </div>
         </div>
     </div>

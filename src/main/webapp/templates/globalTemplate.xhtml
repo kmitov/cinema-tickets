@@ -27,8 +27,9 @@
                         <h:link value="Movies" outcome="/templates/movies.jsf" />
                         <h:link value="Programme" outcome="/templates/programme.jsf" />
 
-                        <h:link value="Add Projections" outcome="/templates/addProjections.jsf" />
-
+                        <ht:outputLabel rendered="#{userBean.userLoggedIn and userBean.loggedInUser.userRole == 'ROLE_ADMIN'}">
+                            <h:link value="Add Projections" outcome="/templates/addProjections.jsf" />
+                        </ht:outputLabel>
                         <ht:outputLabel rendered="#{!userBean.userLoggedIn}">
                             <h:link value="Login/Register" outcome="/templates/login.jsf" />
                         </ht:outputLabel>

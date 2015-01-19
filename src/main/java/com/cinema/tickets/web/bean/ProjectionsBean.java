@@ -1,12 +1,14 @@
 package com.cinema.tickets.web.bean;
 
 import com.cinema.tickets.dto.MovieDto;
+import com.cinema.tickets.dto.ProjectionDto;
 import com.cinema.tickets.dto.TheatreDto;
 import com.cinema.tickets.service.MovieService;
 import com.cinema.tickets.service.ProjectionService;
 import com.cinema.tickets.service.TheatreService;
 
 import java.util.List;
+import static com.cinema.tickets.utils.MessagingUtil.addMessage;
 
 /**
  * Created by kmitov on 1/19/15.
@@ -24,7 +26,10 @@ public class ProjectionsBean {
     private Long theatreId;
 
     public void addProjection(){
-        projectionService.addProjection(this.movieId, this.theatreId);
+        final ProjectionDto result = projectionService.addProjection(this.movieId, this.theatreId);
+        if(result != null) {
+            addMessage("The projection has been added successfully ", "Success");
+        }
     }
 
     public ProjectionsBean(MovieService movieService, TheatreService theatreService, ProjectionService projectionService) {

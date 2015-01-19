@@ -38,6 +38,7 @@ public class ReservationServiceImpl implements ReservationService {
                 reservationDao.create(reservationAssembler.toEntity(reservationDto)));
 
         for(TicketDto ticketDto : ticketDtos) {
+            ticketDto.setReservationId(madeReservation.getId());
             ticketDao.create(ticketAssembler.toEntity(ticketDto));
         }
 

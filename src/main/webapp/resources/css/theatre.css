@@ -36,3 +36,9 @@
 .white-label {
     color:white;
 }
+
+.movie-title-theatre {
+    font: normal normal normal 25px/1.3em Forum,serif;
+    color: #EFEFEF;
+    margin-bottom: 10px;
+}

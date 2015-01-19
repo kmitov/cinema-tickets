@@ -21,4 +21,11 @@
         <constructor-arg ref="projectionService"/>
     </bean>
 
+    <bean id="programmeBean" class="com.cinema.tickets.web.bean.ProgrammeBean">
+        <constructor-arg ref="movieService"/>
+        <constructor-arg ref="projectionService"/>
+    </bean>
+
+
+
 </beans>

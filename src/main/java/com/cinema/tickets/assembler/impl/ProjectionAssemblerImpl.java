@@ -4,6 +4,9 @@ import com.cinema.tickets.assembler.ProjectionAssembler;
 import com.cinema.tickets.dto.ProjectionDto;
 import com.cinema.tickets.entity.Projection;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by kmitov on 1/19/15.
  */
@@ -28,5 +31,14 @@ public class ProjectionAssemblerImpl implements ProjectionAssembler {
         dto.setMovieId(entity.getMovieId());
         dto.setDate(entity.getDate());
         return dto;
+    }
+
+    @Override
+    public List<ProjectionDto> toDtoList(List<Projection> entities) {
+        final List<ProjectionDto> dtos = new ArrayList<ProjectionDto>();
+        for(Projection entity : entities) {
+            dtos.add(toDto(entity));
+        }
+        return dtos;
     }
 }

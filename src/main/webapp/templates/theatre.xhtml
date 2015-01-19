@@ -2,6 +2,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
       template="/templates/globalTemplate.xhtml" >
 
     <ui:define name="content" >
@@ -24,10 +25,17 @@
 
         </h:outputScript>
 
+        <f:metadata>
+            <f:viewParam name="projectionId" value="#{theatreBean.projectionId}"/>
+            <f:viewParam name="theatreId" value="#{theatreBean.theatreId}"/>
+            <f:viewParam name="userId" value="#{theatreBean.userId}"/>
+        </f:metadata>
+
         <h:form id="theatreForm">
             <p:remoteCommand name="remoteCommand" actionListener="#{theatreBean.reservePlace}"/>
+            <p:growl id="growl" showDetail="true" sticky="true" />
 
-            <h:outputLabel value="INTERSTELLAR" styleClass="white-label" ></h:outputLabel>
+            <h:outputLabel value="INTERSTELLAR" styleClass="white-label movie-title-theatre" ></h:outputLabel>
 
             <div id="theatre">
                 <ui:repeat value="#{theatreBean.rows}" var="row" >
@@ -42,7 +50,7 @@
                 </ui:repeat>
             </div>
 
-            <p:commandButton value="Reserve" actionListener="#{theatreBean.reserveSelectedTickets}" />
+            <h:commandButton value="Reserve" actionListener="#{theatreBean.reserveSelectedTickets}" />
         </h:form>
     </ui:define>
 </ui:composition>

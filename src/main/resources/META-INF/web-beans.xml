@@ -5,6 +5,8 @@
 
     <bean id="theatreBean" class="com.cinema.tickets.web.bean.TheatreBean" >
         <constructor-arg ref="reservationService"/>
+        <constructor-arg ref="movieService"/>
+        <constructor-arg ref="projectionService"/>
     </bean>
 
     <bean id="movieBean" class="com.cinema.tickets.web.bean.MoviesBean">

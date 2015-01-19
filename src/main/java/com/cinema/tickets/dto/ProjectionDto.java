@@ -1,5 +1,6 @@
 package com.cinema.tickets.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -38,6 +39,12 @@ public class ProjectionDto {
     public Date getDate() {
         return date;
     }
+
+    public String getFormattedDate() {
+        SimpleDateFormat sd = new SimpleDateFormat("dd/mm/yyyy");
+        return sd.format(this.date);
+    }
+
 
     public void setDate(Date date) {
         this.date = date;

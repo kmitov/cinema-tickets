@@ -1,9 +1,11 @@
 package com.cinema.tickets.web.bean;
 
-import com.cinema.tickets.dto.TheatreRowDto;
-import com.cinema.tickets.dto.TheatreSeatDto;
-import com.cinema.tickets.dto.TicketDto;
+import com.cinema.tickets.dto.*;
+import com.cinema.tickets.entity.Projection;
+import com.cinema.tickets.service.MovieService;
+import com.cinema.tickets.service.ProjectionService;
 import com.cinema.tickets.service.ReservationService;
+import com.cinema.tickets.service.impl.MovieServiceImpl;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -19,6 +21,8 @@ import static com.cinema.tickets.utils.MessagingUtil.addMessage;
 public class TheatreBean {
 
     private ReservationService reservationService;
+    private MovieService movieService;
+    private ProjectionService projectionService;
 
     private List<TheatreRowDto> rows;
     private List<TicketDto> reservedTickets;
@@ -28,11 +32,21 @@ public class TheatreBean {
     private Long theatreId;
     private Long userId;
 
+    private MovieDto selectedMovie;
+    private ProjectionDto selectedProjection;
+
     private static final int MAX_SEATS_PER_ROW = 12;
 
     //Dummy constructor to produce an example theatre
-    public TheatreBean(ReservationService reservationService) {
+    public TheatreBean(ReservationService reservationService, MovieService movieService, ProjectionService projectionService) {
         this.reservationService = reservationService;
+        this.movieService = movieService;
+        this.projectionService = projectionService;
+        tickets = new ArrayList<TicketDto>();
+        initializeTheatre();
+    }
+
+    private void initializeTheatre() {
         rows = new ArrayList<TheatreRowDto>();
         for(int i = 1; i<7; i++){
             TheatreRowDto rowDto = new TheatreRowDto();
@@ -48,8 +62,6 @@ public class TheatreBean {
             rowDto.setSeats(seats);
             rows.add(rowDto);
         }
-
-        tickets = new ArrayList<TicketDto>();
     }
 
     public List<TheatreRowDto> getRows() {
@@ -107,6 +119,8 @@ public class TheatreBean {
     public void setProjectionId(Long projectionId) {
         this.projectionId = projectionId;
         this.reservedTickets = reservationService.getReservationsForProjection(projectionId);
+        this.selectedProjection = projectionService.getById(projectionId);
+        this.selectedMovie = movieService.getById(this.selectedProjection.getMovieId());
     }
 
     public Long getUserId() {
@@ -115,5 +129,13 @@ public class TheatreBean {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public MovieDto getSelectedMovie() {
+        return selectedMovie;
+    }
+
+    public ProjectionDto getSelectedProjection() {
+        return selectedProjection;
     }
 }

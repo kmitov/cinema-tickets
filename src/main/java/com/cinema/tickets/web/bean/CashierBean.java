@@ -11,6 +11,7 @@ import com.cinema.tickets.service.ReservationService;
 import com.cinema.tickets.service.impl.ProjectionServiceImpl;
 
 import javax.faces.event.ComponentSystemEvent;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

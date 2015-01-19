@@ -11,7 +11,7 @@
         <h:outputScript name="js/jssor.slider.mini.js" />
 
         <script>
-            function load(pageUrl){
+            function load(pageUrl) {
                 $("#switchable-content").load(pageUrl);
             }
         </script>
@@ -88,6 +88,18 @@
                 $(window).bind("resize", ScaleSlider);
                 $(window).bind("orientationchange", ScaleSlider);
             });
+        </script>
+
+        <script type="text/javascript">
+        $(function(){
+            $(".movie-description").each(function(i){
+                len=$(this).text().length;
+                if(len>80)
+                {
+                    $(this).text($(this).text().substr(0,60)+'...');
+                }
+            });
+        });
         </script>
 
         <h:form id="homeForm">

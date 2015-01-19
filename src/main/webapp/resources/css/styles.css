@@ -86,17 +86,18 @@ h2 {
 .movie-description {
     font: 13px/1.3em "Open Sans",sans-serif;
     color: #EFEFEF;
+    height: 33px;
 }
 
 .movie-text {
     border-top: 2px solid #3e3e3e ;
     padding-top: 8px;
-    height: 40px;
+    height: 33px;
     margin-top: 15px;
 }
 
 .read-more {
-    margin-top: 15px;
+    margin-top: 0px;
     margin-left: 0;
     padding-left: 0;
 
@@ -121,7 +122,7 @@ h2 {
 }
 
 #footer {
-    height:400px;
+    height:100px;
     border-top: 1px solid white;
     margin-top: 20px;
 }

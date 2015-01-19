@@ -1,72 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:head>
-        <link rel="stylesheet" type="text/css" href="../static/styles_cashier.css"></link>
-    </h:head>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        template="/templates/globalTemplate.xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        >
 
-    <h:body>
-        <p:growl id="msgs"/>
+    <ui:define name="content" >
+    <h:outputStylesheet name="css/styles_programme.css" />
+            <p:growl id="msgs"/>
 
-        <div style="background-color: black; width:100%; height: 600px;">
-            <div id="content" style="width: 968px; margin:0 auto;">
-                <div id="date">
-                    <p:outputLabel for="mask" value=""/>
-                    <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true"/>
-                </div>
-                <div id="Projection">
-                    <p:selectOneMenu id="dropdownProjection" value="#{dropdownView.country}">
-                        <p:ajax listener="#{dropdownView.onCountryChange}" update="dropdownProjection"/>
-                        <f:selectItem itemLabel="Select projection" itemValue="" noSelectionOption="true"/>
-                        <f:selectItems value="#{dropdownView.countries}"/>
-                    </p:selectOneMenu>
-                </div>
+            <div style="background-color: black; width:100%; height: 600px;">
+                <div id="content" style="width: 968px; margin:0 auto;">
+                    <div id="date">
+                        <p:outputLabel for="mask" value=""/>
+                        <p:calendar id="mask" value="#{calendarView.date9}" pattern="dd-MM-yyyy" mask="true"/>
+                    </div>
+                    <div id="Projection">
+                        <p:selectOneMenu id="dropdownProjection" value="#{dropdownView.country}">
+                            <p:ajax listener="#{dropdownView.onCountryChange}" update="dropdownProjection"/>
+                            <f:selectItem itemLabel="Select projection" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{dropdownView.countries}"/>
+                        </p:selectOneMenu>
+                    </div>
 
-                <div id="contentTable">
-                    <h:form>
-                        <p:dataTable styleClass="table" var="ticket" value="#{dtTicketFilterView.tickets}" widgetVar="ticketsTable" filteredValue="#{dtTicketFilterView.filteredTickets}">
+                    <div id="contentTable">
+                        <h:form>
+                            <p:dataTable styleClass="table" var="ticket" value="#{dtTicketFilterView.tickets}" widgetVar="ticketsTable" filteredValue="#{dtTicketFilterView.filteredTickets}">
 
-                            <f:facet name="header">
-                                <p:outputPanel style="text-align: right;">
-                                    <h:outputText value="Search all fields:" style="font-size: 82%"/>
-                                    <p:inputText id="globalFilter" onkeyup="PF('ticketsTable').filter()" style="width:150px; font-size: 82%" placeholder="Enter keyword"/>
-                                </p:outputPanel>
-                            </f:facet>
-                            <p:column styleClass="colID" headerText="Ticket" filterBy="#{ticket.id}" filterMatchMode="contains" filterStyleClass="filterInputFieldID">
-                                <h:outputText value="#{ticket.id}"/>
-                            </p:column>
-
-                            <p:column id="colUser" headerText="User" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputFieldUser">
-                                <h:outputText value="#{ticket.user}"/>
-                            </p:column>
-
-                            <p:column styleClass="colStatus" headerText="Status" filterBy="#{ticket.taken}" filterMatchMode="equals">
-                                <f:facet name="filter">
-                                    <p:selectOneButton onchange="PF('ticketsTable').filter()" styleClass="filterButtons">
-                                        <f:converter converterId="javax.faces.Boolean"/>
-                                        <f:selectItem itemLabel="All" itemValue=""/>
-                                        <f:selectItem itemLabel="Taken" itemValue="true"/>
-                                        <f:selectItem itemLabel="Not taken" itemValue="false"/>
-                                    </p:selectOneButton>
+                                <f:facet name="header">
+                                    <p:outputPanel style="text-align: right;">
+                                        <h:outputText value="Search all fields:" style="font-size: 82%"/>
+                                        <p:inputText id="globalFilter" onkeyup="PF('ticketsTable').filter()" style="width:150px; font-size: 82%" placeholder="Enter keyword"/>
+                                    </p:outputPanel>
                                 </f:facet>
-                                <!--<div id="Status">-->
-                                <p:selectBooleanButton id="takenButton" value="#{ticket.taken}" onLabel="Taken" offLabel="Not taken" onIcon="ui-icon-check" offIcon="ui-icon-close" styleClass="takenButton">
-                                    <!--<p:ajax update="msgs" listener="" />-->
-                                </p:selectBooleanButton>
-                                <!--</div>-->
-                            </p:column>
-                        </p:dataTable>
-                    </h:form>
+                                <p:column styleClass="colID" headerText="Ticket" filterBy="#{ticket.id}" filterMatchMode="contains" filterStyleClass="filterInputFieldID">
+                                    <h:outputText value="#{ticket.id}"/>
+                                </p:column>
+
+                                <p:column id="colUser" headerText="User" filterBy="#{ticket.user}" filterMatchMode="contains" filterStyleClass="filterInputFieldUser">
+                                    <h:outputText value="#{ticket.user}"/>
+                                </p:column>
+
+                                <p:column styleClass="colStatus" headerText="Status" filterBy="#{ticket.taken}" filterMatchMode="equals">
+                                    <f:facet name="filter">
+                                        <p:selectOneButton onchange="PF('ticketsTable').filter()" styleClass="filterButtons">
+                                            <f:converter converterId="javax.faces.Boolean"/>
+                                            <f:selectItem itemLabel="All" itemValue=""/>
+                                            <f:selectItem itemLabel="Taken" itemValue="true"/>
+                                            <f:selectItem itemLabel="Not taken" itemValue="false"/>
+                                        </p:selectOneButton>
+                                    </f:facet>
+                                    <!--<div id="Status">-->
+                                    <p:selectBooleanButton id="takenButton" value="#{ticket.taken}" onLabel="Taken" offLabel="Not taken" onIcon="ui-icon-check" offIcon="ui-icon-close" styleClass="takenButton">
+                                        <!--<p:ajax update="msgs" listener="" />-->
+                                    </p:selectBooleanButton>
+                                    <!--</div>-->
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </h:body>
-</f:view>
-
-</html>
+    </ui:define>
+</ui:composition>

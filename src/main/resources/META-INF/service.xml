@@ -13,4 +13,11 @@
         <property name="userDao" ref="userDao"/>
         <property name="userAssembler" ref="userAssembler"/>
     </bean>
+
+    <bean id="reservationService" class="com.cinema.tickets.service.impl.ReservationServiceImpl" >
+        <property name="ticketDao" ref="ticketDao"/>
+        <property name="reservationDao" ref="reservationDao"/>
+        <property name="ticketAssembler" ref="ticketAssembler"/>
+        <property name="reservationAssembler" ref="reservationAssembler"/>
+    </bean>
 </beans>

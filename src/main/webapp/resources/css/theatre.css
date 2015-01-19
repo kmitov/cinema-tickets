@@ -1,0 +1,38 @@
+.theatre-seat {
+    width:40px;
+    height: 40px;
+    background: url(../../pictures/seat.png) no-repeat;
+    background-color: green;
+    background-size: 100%;
+
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+}
+
+.theatre-row {
+    width: 968px;
+    margin: 0 auto;
+    margin-top: 3px;
+    text-align: center;
+}
+
+.seat-payed {
+    background-color: red;
+}
+
+.seat-reserved {
+    background-color: yellow;
+}
+.seat-reserved-by-me {
+    background-color: white;
+}
+
+.seat-number {
+    color: white;
+    line-height: 2em;
+}
+
+.white-label {
+    color:white;
+}

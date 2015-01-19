@@ -1,23 +1,17 @@
-package com.cinema.tickets.entity;
+package com.cinema.tickets.dto;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by kmitov on 1/16/15.
+ * Created by kmitov on 1/19/15.
  */
-@Entity
-@Table(name= "reservations")
-public class Reservation {
+public class ReservationDto {
     private Long id;
     private Long projectionId;
     private Long theatreId;
     private Date date;
     private Long userId;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",unique = true, nullable = false)
     public Long getId() {
         return id;
     }
@@ -26,7 +20,6 @@ public class Reservation {
         this.id = id;
     }
 
-    @Column(name = "projectionId", nullable = false)
     public Long getProjectionId() {
         return projectionId;
     }
@@ -35,7 +28,6 @@ public class Reservation {
         this.projectionId = projectionId;
     }
 
-    @Column(name = "theatreId", nullable = false)
     public Long getTheatreId() {
         return theatreId;
     }
@@ -44,7 +36,6 @@ public class Reservation {
         this.theatreId = theatreId;
     }
 
-    @Column(name = "date", nullable = false)
     public Date getDate() {
         return date;
     }
@@ -53,7 +44,6 @@ public class Reservation {
         this.date = date;
     }
 
-    @Column(name = "userId", nullable = false)
     public Long getUserId() {
         return userId;
     }

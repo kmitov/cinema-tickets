@@ -1,10 +1,14 @@
-package com.cinema.tickets.dto;
+package com.cinema.tickets.entity;
+
+import javax.persistence.*;
 
 /**
- * Created by kmitov on 1/16/15.
+ * Created by Jordan Danchev on 15.1.2015 г..
  */
-public class TicketDto {
 
+@Entity
+@Table(name="tickets")
+public class Ticket {
     private Long id;
     private Long reservationId;
     private Long projectionId;
@@ -12,7 +16,9 @@ public class TicketDto {
     private Long seatId;
     private Long theatreId;
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id",unique = true, nullable = false)
     public Long getId() {
         return id;
     }
@@ -21,14 +27,7 @@ public class TicketDto {
         this.id = id;
     }
 
-    public Long getRowId() {
-        return rowId;
-    }
-
-    public void setRowId(Long rowId) {
-        this.rowId = rowId;
-    }
-
+    @Column(name = "reservationId", nullable = false)
     public Long getReservationId() {
         return reservationId;
     }
@@ -37,6 +36,7 @@ public class TicketDto {
         this.reservationId = reservationId;
     }
 
+    @Column(name = "projectionId", nullable = false)
     public Long getProjectionId() {
         return projectionId;
     }
@@ -45,6 +45,16 @@ public class TicketDto {
         this.projectionId = projectionId;
     }
 
+    @Column(name = "rowId", nullable = false)
+    public Long getRowId() {
+        return rowId;
+    }
+
+    public void setRowId(Long rowId) {
+        this.rowId = rowId;
+    }
+
+    @Column(name = "seatId", nullable = false)
     public Long getSeatId() {
         return seatId;
     }
@@ -53,6 +63,7 @@ public class TicketDto {
         this.seatId = seatId;
     }
 
+    @Column(name = "theatreId", nullable = false)
     public Long getTheatreId() {
         return theatreId;
     }
@@ -61,3 +72,5 @@ public class TicketDto {
         this.theatreId = theatreId;
     }
 }
+
+

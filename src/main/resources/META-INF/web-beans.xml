@@ -3,7 +3,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-    <bean id="theatreBean" class="com.cinema.tickets.web.bean.TheatreBean" />
+    <bean id="theatreBean" class="com.cinema.tickets.web.bean.TheatreBean" >
+        <constructor-arg ref="reservationService"/>
+    </bean>
+
     <bean id="movieBean" class="com.cinema.tickets.web.bean.MoviesBean">
         <constructor-arg ref="movieService"/>
     </bean>

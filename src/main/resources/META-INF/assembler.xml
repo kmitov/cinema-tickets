@@ -6,4 +6,7 @@
 
     <bean id="userAssembler" class="com.cinema.tickets.assembler.impl.UserAssemblerImpl"/>
     <bean id="movieAssembler" class="com.cinema.tickets.assembler.impl.MovieAssemblerImpl"/>
+    <bean id="reservationAssembler" class="com.cinema.tickets.assembler.impl.ReservationAssemblerImpl"/>
+    <bean id="ticketAssembler" class="com.cinema.tickets.assembler.impl.TicketAssemblerImpl"/>
+    <bean id="projectionAssembler" class="com.cinema.tickets.assembler.impl.ProjectionAssemblerImpl"/>
 </beans>

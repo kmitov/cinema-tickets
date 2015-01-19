@@ -6,6 +6,7 @@ package com.cinema.tickets.web.bean;
 
 
 import com.cinema.tickets.enums.Ticket;
+import com.cinema.tickets.service.impl.TicketServiceImpl;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,7 +28,7 @@ public class TicketFilterView implements Serializable {
     private List<Ticket> filteredTickets;
 
     @ManagedProperty("#{ticketService}")
-    private TicketService service;
+    private TicketServiceImpl service;
 
     @PostConstruct
     public void init() {
@@ -39,7 +40,7 @@ public class TicketFilterView implements Serializable {
         return tickets;
     }
 
-    public void setService(TicketService service) {
+    public void setService(TicketServiceImpl service) {
         this.service = service;
     }
 

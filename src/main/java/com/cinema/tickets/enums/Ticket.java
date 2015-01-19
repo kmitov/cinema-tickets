@@ -1,7 +1,5 @@
 package com.cinema.tickets.enums;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 

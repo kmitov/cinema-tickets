@@ -10,8 +10,14 @@ import java.util.List;
 public class MoviesBean {
 
     private MovieDto movie;
-    MovieService movieService;
+    private String movieId;
+    private MovieService movieService;
 //    private List<MovieDto> movies;
+
+
+    public MoviesBean(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     public MovieService getMovieService() {
         return movieService;
@@ -39,6 +45,15 @@ public class MoviesBean {
 
     public List<MovieDto> getAllMoviesOnScreen(){
         return movieService.getAllMoviesOnScreen();
+    }
+
+    public String getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
+        this.movie = movieService.getDetailedMovieInfo(Long.valueOf(movieId));
     }
 }
 

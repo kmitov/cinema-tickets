@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/xml">
-<f:view>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        template="/templates/globalTemplate.xhtml"
+        >
 
-    <h:head>
-        <link rel="stylesheet" type="text/css" href="../static/home_styles.css"> </link>
-        <script src="js/jquery-1.9.1.min.js"></script>
-        <script src="js/jssor.slider.mini.js"></script>
+    <ui:define name="content" >
+
+        <h:outputScript name="js/jquery-1.9.1.min.js" />
+        <h:outputScript name="js/jssor.slider.mini.js" />
+
         <script>
             function load(pageUrl){
                 $("#switchable-content").load(pageUrl);
@@ -89,77 +90,42 @@
                 $(window).bind("orientationchange", ScaleSlider);
             });
         </script>
-    </h:head>
 
-    <h:body>
-    <div id="movieCarousel">
-        <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
-            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
-                <div>
-                    <img u="image" src="pictures/imitation-game.jpg" />
-                    <div u="thumb">Do you notice it is draggable by mouse/finger?</div>
+        <h:form id="homeForm">
+            <div id="movieCarousel">
+                <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+                    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+                        <div>
+                            <h:graphicImage u="image" value="../pictures/imitation-game.jpg" width="600px" height="300px" />
+                            <div u="thumb">Do you notice it is draggable by mouse/finger?</div>
+                        </div>
+                        <div>
+                            <h:graphicImage u="image" value="../pictures/the-interview.jpg" width="600px" height="300px" />
+                            <div u="thumb">Did you drag by either horizontal or vertical?</div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img u="image" src="pictures/the-interview.jpg" />
-                    <div u="thumb">Did you drag by either horizontal or vertical?</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--<div><img u="image" src="pictures/landscape1.jpg" /></div>-->
-    <!--<div><img u="image" src="pictures/landscape2.jpg" /></div>-->
-
-    <div id="additional-movies">
-
-        <div id="movie1" class="movie-small" >
-            <h2><span class="movie-title">The Hobbit</span></h2>
-            <h:graphicImage url="pictures/the-hobbit.jpg" styleClass="small-movie-image" />
-
-            <div class="movie-text" >
-                <span class="movie-description">The hobbit is the adventure of Bilbo Baggins in Middle Earth.</span>
             </div>
 
-            <a class="read-more" href="#">Read more></a>
-        </div>
+            <div id="additional-movies">
+                <ui:repeat var="item" value="#{movieBean.additonalMovies}" >
+                    <div id="#{item.id}" class="movie-small" >
+                        <h2><span class="movie-title">#{item.title}</span></h2>
+                        <h:graphicImage url="#{item.imageUrl}" styleClass="small-movie-image" />
 
-        <div id="movie2" class="movie-small" >
-            <h2><span class="movie-title">Interstellar</span></h2>
-            <h:graphicImage url="pictures/interstellar.jpeg" styleClass="small-movie-image" />
+                        <div class="movie-text" >
+                            <span class="movie-description">#{item.description}</span>
+                        </div>
+                        <h:link value="Read more>" includeViewParams="true" outcome="singleMovie" styleClass="read-more">
+                            <f:param name="movieID" value="#{item.id}"></f:param>
+                        </h:link>
+                    </div>
+                </ui:repeat>
 
-            <div class="movie-text" >
-                <span class="movie-description">Interstellar is a movie about space, saving the human race, and Mathew McConoughey in a black hole.</span>
+                <span class="stretch"></span>
             </div>
+        </h:form>
 
-            <a class="read-more" href="#">Read more></a>
-        </div>
+    </ui:define>
 
-        <div id="movie3" class="movie-small" >
-            <h2><span class="movie-title">#{movieBean.getMovies().get(0).title}</span></h2>
-            <h:graphicImage url="pictures/godfather.jpg" styleClass="small-movie-image" />
-
-            <div class="movie-text" >
-                <span class="movie-description">The godfather is an awesome movie from the 80s about Don Vito Corleone</span>
-            </div>
-
-            <a class="read-more" href="#">Read more></a>
-        </div>
-
-        <div id="movie4" class="movie-small" >
-            <h2><span class="movie-title">Fast and Furious</span></h2>
-            <h:graphicImage url="pictures/faf.jpg" styleClass="small-movie-image" />
-
-            <div class="movie-text" >
-                <span class="movie-description">Fast and furious is a movie about fast cars and hot chicks.</span>
-            </div>
-
-            <a class="read-more" href="#">Read more></a>
-        </div>
-        <span class="stretch"></span>
-    </div>
-
-</h:body>
-
-
-</f:view>
-</html>
+</ui:composition>

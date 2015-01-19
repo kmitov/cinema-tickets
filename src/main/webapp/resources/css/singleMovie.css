@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+}
+
+.menu-buttons {
+    text-align: center;
+    line-height: 44px;
+}
+
+
+.movie-poster {
+    width: 440px;
+    height: 200px;
+    border: 1px solid #9C8700;
+    float: left;
+}
+
+.movie-title{
+    font: normal normal normal 30px/1em Forum,serif;
+    color: #EFEFEF;
+}
+
+.property-name{
+    font: normal normal normal 14px/1.3em 'Open Sans',sans-serif;
+    color: #9C8700;
+    margin: 5px 0px 0px 25px;
+}
+
+.property-value{
+    font: normal normal normal 14px/1.3em 'Open Sans',sans-serif;
+    color: #EFEFEF;
+}
+
+.property-summary{
+    font: normal normal normal 14px/1.3em 'Open Sans',sans-serif;
+    color: #EFEFEF;
+    margin: 5px 0px 0px 466px;
+    text-align: justify;
+}
+
+hr {
+    color: #3e3e3e;
+    background: #3e3e3e;
+    width: 100%;
+    border: 0px;
+    height: 2px;
+    margin: 60px 0px 0px 0px;
+}

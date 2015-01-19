@@ -1,29 +1,20 @@
 package com.cinema.tickets.web.bean;
 
 import com.cinema.tickets.dto.MovieDto;
-import com.cinema.tickets.entity.Movie;
 import com.cinema.tickets.service.MovieService;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+
 import java.util.List;
 
 public class MoviesBean {
 
+    private MovieService movieService;
+
     private MovieDto movie;
     private String movieId;
-    private MovieService movieService;
+
 //    private List<MovieDto> movies;
 
-
     public MoviesBean(MovieService movieService) {
-        this.movieService = movieService;
-    }
-
-    public MovieService getMovieService() {
-        return movieService;
-    }
-
-    public void setMovieService(MovieService movieService) {
         this.movieService = movieService;
     }
 

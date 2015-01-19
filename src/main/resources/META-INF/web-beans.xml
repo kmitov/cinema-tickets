@@ -15,4 +15,10 @@
         <property name="userService" ref="userService"/>
     </bean>
 
+    <bean id="projectionsBean" class="com.cinema.tickets.web.bean.ProjectionsBean">
+        <constructor-arg ref="movieService"/>
+        <constructor-arg ref="theatreService"/>
+        <constructor-arg ref="projectionService"/>
+    </bean>
+
 </beans>

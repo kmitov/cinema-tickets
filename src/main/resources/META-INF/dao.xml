@@ -15,4 +15,8 @@
     <bean id="reservationDao" class="com.cinema.tickets.dao.impl.ReservationDaoImpl" parent="baseDao" />
 
     <bean id="ticketDao" class="com.cinema.tickets.dao.impl.TicketDaoImpl" parent="baseDao" />
+
+    <bean id="theatreDao" class="com.cinema.tickets.dao.impl.TheatreDaoImpl" parent="baseDao" />
+
+    <bean id="projectionDao" class="com.cinema.tickets.dao.impl.ProjectionDaoImpl" parent="baseDao" />
 </beans>

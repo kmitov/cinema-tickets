@@ -18,12 +18,12 @@ import javax.persistence.*;
 @Table(name="users")
 public class User {
     private long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String userName;
     private String password;
     private boolean enabled;
     private UserRole userRole;
-//    private String email;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,13 +36,22 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "name", nullable = false)
-    public String getName() {
-        return name;
+    @Column(name = "firstName", nullable = false)
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Column(name = "lastName", nullable = false)
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Column(name = "username", nullable = false)

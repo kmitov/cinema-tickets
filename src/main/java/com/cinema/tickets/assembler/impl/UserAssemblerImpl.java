@@ -10,13 +10,21 @@ import com.cinema.tickets.entity.User;
 public class UserAssemblerImpl implements UserAssembler {
     @Override
     public UserDto toDto(User user) {
-        return null;
+        final UserDto dto = new UserDto();
+        dto.setId(user.getId());
+        dto.setEnabled(user.isEnabled());
+        dto.setUsername(user.getUserName());
+        dto.setFirstName(user.getFirstName());
+        dto.setLastName(user.getLastName());
+        dto.setUserRole(user.getUserRole());
+        return dto;
     }
 
     @Override
     public User toEntity(UserDto userDto) {
         User user = new User();
-        user.setName(userDto.getFirstName() + " " + userDto.getLastName());
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
         user.setPassword(userDto.getPassword());
         user.setUserName(userDto.getUsername());
         user.setEnabled(userDto.isEnabled());

@@ -2,7 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ht="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
 <f:view>
 
     <h:head>
@@ -23,7 +26,18 @@
                         <h:link value="Home" outcome="/templates/home.jsf" />
                         <h:link value="Movies" outcome="/templates/movies.jsf" />
                         <h:link value="Programme" outcome="/templates/programme.jsf" />
+
+                        <h:link value="Add Projections" outcome="/templates/addProjections.jsf" />
+
+                        <ht:outputLabel rendered="#{!userBean.userLoggedIn}">
+                            <h:link value="Login/Register" outcome="/templates/login.jsf" />
+                        </ht:outputLabel>
+                        <ht:outputLabel rendered="#{userBean.userLoggedIn}">
+                            <h:outputLink value="${request.contextPath}/j_spring_security_logout">logout</h:outputLink>
+                        </ht:outputLabel>
                     </div>
+
+
                 </div>
 
                 <div id="switchable-content">

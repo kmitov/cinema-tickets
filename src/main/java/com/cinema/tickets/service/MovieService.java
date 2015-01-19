@@ -1,56 +1,17 @@
 package com.cinema.tickets.service;
 
-import com.cinema.tickets.assembler.MovieAssembler;
-import com.cinema.tickets.dao.MovieDao;
 import com.cinema.tickets.dto.MovieDto;
-import com.cinema.tickets.entity.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class MovieService {
-    public MovieDao movieDao;
-    private MovieAssembler movieAssembler;
+/**
+ * Created by kmitov on 1/19/15.
+ */
+public interface MovieService {
 
-    public MovieDao getMovieDao() {
-        return movieDao;
-    }
+    public List<MovieDto> getAllMoviesOnScreen();
 
-    public void setMovieDao(MovieDao movieDao) {
-        this.movieDao = movieDao;
-    }
+    public MovieDto getDetailedMovieInfo(long movieID);
 
-    public MovieAssembler getMovieAssembler() {
-        return movieAssembler;
-    }
-
-    public void setMovieAssembler(MovieAssembler movieAssembler) {
-        this.movieAssembler = movieAssembler;
-    }
-
-    public List<MovieDto> moviesForHomePage(){
-        List<MovieDto> moviesForHomepage = new ArrayList<MovieDto>();
-        List<Movie> movies = movieDao.getLatestMovies();
-        for (Movie movie : movies){
-            moviesForHomepage.add(movieAssembler.toMovieDto(movie));
-            if(moviesForHomepage.size()==4)
-                break;
-        }
-        return moviesForHomepage;
-    }
-
-    public MovieDto getDetailedMovieInfo(long movieID){
-        Movie movie = movieDao.getMovie(movieID);
-        return movieAssembler.toMovieDto(movie);
-    }
-
-    public List<MovieDto> getAllMoviesOnScreen(){
-        List<MovieDto> moviesOnScreen = new ArrayList<MovieDto>();
-        List<Movie> movies = movieDao.getLatestMovies();
-        for (Movie movie : movies){
-            moviesOnScreen.add(movieAssembler.toMovieDto(movie));
-        }
-        return moviesOnScreen;
-    }
-
+    public List<MovieDto> moviesForHomePage();
 }

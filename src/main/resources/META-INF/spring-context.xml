@@ -14,8 +14,7 @@
     <import resource="classpath*:META-INF/dao.xml" />
     <import resource="classpath*:META-INF/assembler.xml" />
     <import resource="classpath*:META-INF/web-beans.xml" />
-    <!--Spring security disabled for now -->
-    <!--<import resource="classpath*:META-INF/spring-security.xml" />-->
+    <import resource="classpath*:META-INF/spring-security.xml" />
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">

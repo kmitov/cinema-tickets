@@ -9,4 +9,5 @@
     <bean id="reservationAssembler" class="com.cinema.tickets.assembler.impl.ReservationAssemblerImpl"/>
     <bean id="ticketAssembler" class="com.cinema.tickets.assembler.impl.TicketAssemblerImpl"/>
     <bean id="projectionAssembler" class="com.cinema.tickets.assembler.impl.ProjectionAssemblerImpl"/>
+    <bean id="theatreAssembler" class="com.cinema.tickets.assembler.impl.TheatreAssemblerImpl"/>
 </beans>

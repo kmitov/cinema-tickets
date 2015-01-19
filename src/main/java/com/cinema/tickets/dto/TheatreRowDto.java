@@ -6,9 +6,9 @@ import java.util.List;
  * Created by kmitov on 1/14/15.
  */
 public class TheatreRowDto {
-    Long theatreId;
-    Long number;
-    List<TheatreSeatDto> seats;
+    private Long theatreId;
+    private Long number;
+    private List<TheatreSeatDto> seats;
 
     public Long getTheatreId() {
         return theatreId;

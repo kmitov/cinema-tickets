@@ -36,3 +36,19 @@ body {
 .btns-element{
     margin-top: 10px;
 }
+
+a:link{
+    color: #EACB00;
+}
+
+a:visited {
+    color: #EACB00;
+}
+
+a:hover {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}

@@ -18,10 +18,8 @@
     margin-left: 0;
 }
 
-
-
 td {
-    color: #9C8700;
+    color: #EACB00;
     margin-top: 0;
     text-align: left;
     font: 16px/1.3em 'Open Sans', sans-serif;
@@ -70,11 +68,11 @@ table {
 
 
 a:link{
-    color: #9C8700;
+    color: #EACB00;
 }
 
 a:visited {
-    color: #9C8700;
+    color: #EACB00;
 }
 
 a:hover {
@@ -86,6 +84,7 @@ a:link {
 }
 
 .date{
-    color: #9C8700!important;
+    color: #EACB00!important;
 }
+
 

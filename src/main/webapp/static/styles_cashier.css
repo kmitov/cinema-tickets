@@ -89,3 +89,19 @@ a:link {
     font-size: 82%!important;
 }
 
+a:link{
+    color: #EACB00;
+}
+
+a:visited {
+    color: #EACB00;
+}
+
+a:hover {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+

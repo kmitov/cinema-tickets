@@ -11,7 +11,7 @@ body {
 .movie-poster {
     width: 440px;
     height: 200px;
-    border: 1px solid #9C8700;
+    border: 1px solid #EACB00;
     float: left;
 }
 
@@ -23,7 +23,7 @@ body {
 a.read-more{
     font: normal normal normal 12px/1.3em 'Open Sans',sans-serif;
     transition: color 0.4s ease 0s;
-    color: #9C8700;
+    color: #EACB00;
     cursor: pointer;
     white-space: nowrap;
     display: inline-block;
@@ -37,7 +37,7 @@ a.read-more:hover {
 
 .property-name{
     font: normal normal normal 14px/1.3em 'Open Sans',sans-serif;
-    color: #9C8700;
+    color: #EACB00;
     margin: 5px 0px 0px 25px;
 }
 
@@ -60,4 +60,20 @@ hr {
     border: 0px;
     height: 2px;
     margin: 60px 0px 0px 0px;
+}
+
+a:link{
+    color: #EACB00;
+}
+
+a:visited {
+    color: #EACB00;
+}
+
+a:hover {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
 }

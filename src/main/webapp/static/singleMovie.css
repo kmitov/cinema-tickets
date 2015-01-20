@@ -46,3 +46,19 @@ hr {
     height: 2px;
     margin: 60px 0px 0px 0px;
 }
+
+a:link{
+    color: #EACB00;
+}
+
+a:visited {
+    color: #EACB00;
+}
+
+a:hover {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}

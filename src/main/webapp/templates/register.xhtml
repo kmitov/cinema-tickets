@@ -58,7 +58,7 @@
                     <!--</div>-->
                     <div class="element">
                         <div class="btns-element">
-                            <h:commandButton value="Login" action="#{userBean.createAccount()}"/>
+                            <h:commandButton value="Create Account" action="#{userBean.createAccount()}"/>
                             <h:outputLabel value= "Username already taken" rendered="#{userBean.isUsernameTaken()}" />
                             <h:outputLabel value= "Rgeristration sucessful.PLease login." rendered="#{userBean.isRegistrationSuccessful()}" />
                         </div>
